@@ -49,18 +49,12 @@
             >
           </li>
         </ul>
-        <div class="css-1acwmmj">
-          <div
-            class="SearchBar AppHeader-SearchBar css-10fy1q8"
-            role="search"
-            data-za-module="PresetWordItem"
-          >
-            <form class="SearchBar-tool">
+        <div class="app-header-search">
+          <div class="app-header-search-bar">
+            <form class="search-bar-tool">
               <div>
-                <div class="Popover">
-                  <label
-                    class="SearchBar-input Input-wrapper Input-wrapper--grey"
-                  >
+                <div class="popover">
+                  <label class="input-wrapper">
                     <input
                       type="text"
                       maxlength="100"
@@ -79,8 +73,10 @@
                     <button
                       aria-label="搜索"
                       type="button"
-                      class="Button SearchBar-searchButton Button--primary"
-                    ></button>
+                      class="search-button"
+                    >
+                      搜索
+                    </button>
                   </label>
                 </div>
               </div>
@@ -135,6 +131,10 @@ button {
   color: #06f;
   border-color: #06f;
 }
+form {
+  display: block;
+  margin-top: 0em;
+}
 .app-header {
   background: #fff;
   min-width: 1000px;
@@ -166,6 +166,79 @@ button {
 .app-header-tabs-link {
   font-size: 15px;
   color: #8590a6;
+}
+.app-header-tabs-link:hover {
+  color: #121212;
+}
+.app-header-search {
+  display: flex;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  flex: 1;
+  justify-content: center;
+}
+.app-header-search-bar {
+  max-width: 428px;
+  height: 34px;
+  flex-grow: 1;
+}
+.search-bar-tool {
+  flex-grow: 1;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  z-index: 104;
+}
+.popover,
+.search-bar-tool > div {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.input-wrapper {
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 0;
+  border-radius: 999px;
+  background: #f6f6f6;
+  box-sizing: border-box;
+  transition: width 0.2s ease, background 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 34px;
+  padding: 4px 10px;
+  font-size: 14px;
+  border: 1px solid #ebebeb;
+}
+.Input {
+  color: #121212;
+  height: 24px;
+  line-height: 24px;
+  flex: 1 1;
+  padding: 0;
+  overflow: hidden;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  background: transparent;
+  border: none;
+  resize: none;
+}
+.Input:focus {
+  outline: none;
+}
+.search-button {
+  border-bottom-right-radius: 999px;
+  border-top-right-radius: 999px;
+  margin-left: 12px;
+  padding: 0 12px;
+  background: transparent;
+  border-color: transparent;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
 }
 .app-header-userInfo {
   margin-left: 30px;
