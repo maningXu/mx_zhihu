@@ -2,7 +2,7 @@
   <div>
     <header class="app-header">
       <div class="app-header-inner">
-        <a href="https://www.zhihu.com/">
+        <a @click="goLoginPage">
           <svg viewBox="0 0 64 30" fill="#0066FF" width="64" height="30">
             <path
               d="M29.05 4.582H16.733V25.94h3.018l.403 2.572 4.081-2.572h4.815V4.582zm-5.207 18.69l-2.396 1.509-.235-1.508h-1.724V7.233h6.78v16.04h-2.425zM14.46 14.191H9.982c0-.471.033-.954.039-1.458v-5.5h5.106V5.935a1.352 1.352 0 0 0-.404-.957 1.378 1.378 0 0 0-.968-.396H5.783c.028-.088.056-.177.084-.255.274-.82 1.153-3.326 1.153-3.326a4.262 4.262 0 0 0-2.413.698c-.57.4-.912.682-1.371 1.946-.532 1.453-.997 2.856-1.31 3.693C1.444 8.674.28 11.025.28 11.025a5.85 5.85 0 0 0 2.52-.61c1.119-.593 1.679-1.502 2.054-2.883l.09-.3h2.334v5.5c0 .5-.045.982-.073 1.46h-4.12c-.71 0-1.39.278-1.893.775a2.638 2.638 0 0 0-.783 1.874h6.527a17.717 17.717 0 0 1-.778 3.649 16.796 16.796 0 0 1-3.012 5.273A33.104 33.104 0 0 1 0 28.74s3.13 1.175 5.425-.954c1.388-1.292 2.631-3.814 3.23-5.727a28.09 28.09 0 0 0 1.12-5.229h5.967v-1.37a1.254 1.254 0 0 0-.373-.899 1.279 1.279 0 0 0-.909-.37z"
@@ -16,37 +16,10 @@
           </svg>
         </a>
         <ul class="app-header-tabs">
-          <li class="app-header-tab">
-            <a
-              class="app-header-tabs-link"
-              href="//www.zhihu.com/"
-              data-za-not-track-link="true"
-              >首页</a
-            >
-          </li>
-          <li role="tab" class="app-header-tab">
-            <a
-              class="app-header-tabs-link"
-              href="//www.zhihu.com/xen/vip-web"
-              data-za-not-track-link="true"
-              >会员</a
-            >
-          </li>
-          <li role="tab" class="app-header-tab">
-            <a
-              class="app-header-tabs-link"
-              href="//www.zhihu.com/explore"
-              data-za-not-track-link="true"
-              >发现</a
-            >
-          </li>
-          <li role="tab" class="app-header-tab">
-            <a
-              class="app-header-tabs-link"
-              href="//www.zhihu.com/question/waiting"
-              data-za-not-track-link="true"
-              >等你来答</a
-            >
+          <li v-for="(item, index) in list" :key="index" class="app-header-tab">
+            <router-link class="app-header-tabs-link" :to="item.to">
+              {{ item.title }}
+            </router-link>
           </li>
         </ul>
         <div class="app-header-search">
@@ -86,9 +59,14 @@
         <div class="app-header-userInfo">
           <div>
             <div>
-              <button type="button" class="app-header-login">
-                登录</button
-              ><button type="button" class="button-primary">
+              <button
+                type="button"
+                class="app-header-login"
+                @click="goLoginPage"
+              >
+                登录
+              </button>
+              <button type="button" class="button-primary" @click="goLoginPage">
                 加入知乎
               </button>
             </div>
@@ -102,7 +80,23 @@
 <script>
 export default {
   data: function() {
-    return {};
+    return {
+      list: [
+        { title: "首页", to: "/zhihu", href: "//www.zhihu.com/" },
+        { title: "会员", to: "/vip-web", href: "//www.zhihu.com/xen/vip-web" },
+        { title: "发现", to: "/explore", href: "//www.zhihu.com/explore" },
+        {
+          title: "等你来答",
+          to: "/question/waiting",
+          href: "//www.zhihu.com/question/waiting",
+        },
+      ],
+    };
+  },
+  methods: {
+    goLoginPage: function() {
+      window.open("https://www.zhihu.com/");
+    },
   },
 };
 </script>
@@ -111,6 +105,9 @@ export default {
 a {
   color: inherit;
   text-decoration: none;
+}
+a:hover {
+  cursor: pointer;
 }
 ul {
   list-style-type: disc;
@@ -131,9 +128,15 @@ button {
   color: #06f;
   border-color: #06f;
 }
+button:focus {
+  outline: none;
+}
 form {
   display: block;
   margin-top: 0em;
+}
+input:focus {
+  outline: none;
 }
 .app-header {
   background: #fff;
@@ -227,9 +230,6 @@ form {
   border: none;
   resize: none;
 }
-.Input:focus {
-  outline: none;
-}
 .search-button {
   border-bottom-right-radius: 999px;
   border-top-right-radius: 999px;
@@ -249,8 +249,15 @@ form {
 .app-header-login {
   margin-right: 16px;
 }
+.app-header-login:hover {
+  background-color: rgba(0, 102, 255, 0.06);
+}
 .button-primary {
   color: #fff;
   background-color: #06f;
+}
+.button-primary:hover {
+  border-color: #005ce6;
+  background-color: #005ce6;
 }
 </style>

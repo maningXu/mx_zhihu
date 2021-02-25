@@ -1,15 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
-    <div>
-      {{ number }}
-    </div>
-
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/> -->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -17,9 +9,7 @@
 import Header from "/src/components/header/index";
 export default {
   data: function() {
-    return {
-      number: 1,
-    };
+    return {};
   },
   components: {
     Header,
