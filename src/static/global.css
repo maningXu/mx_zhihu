@@ -1,3 +1,7 @@
+/* 
+* page for global:
+* init default element style 
+*/
 * {
   margin: 0;
   padding: 0;
@@ -25,8 +29,11 @@ button {
   background: none;
   border: 1px solid;
   border-radius: 3px;
-  color: #06f;
-  border-color: #06f;
+  color: #8590a6;
+  border-color: #8590a6;
+}
+button:hover {
+  background-color: rgba(133, 144, 166, 0.06);
 }
 button:focus {
   outline: none;

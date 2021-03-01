@@ -48,7 +48,19 @@
                       type="button"
                       class="search-button"
                     >
-                      搜索
+                      <span style="display: inline-flex; paddingTop: 10px">
+                        <svg
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                          width="18"
+                          height="18"
+                        >
+                          <path
+                            d="M17.068 15.58a8.377 8.377 0 0 0 1.774-5.159 8.421 8.421 0 1 0-8.42 8.421 8.38 8.38 0 0 0 5.158-1.774l3.879 3.88c.957.573 2.131-.464 1.488-1.49l-3.879-3.878zm-6.647 1.157a6.323 6.323 0 0 1-6.316-6.316 6.323 6.323 0 0 1 6.316-6.316 6.323 6.323 0 0 1 6.316 6.316 6.323 6.323 0 0 1-6.316 6.316z"
+                            fill-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </span>
                     </button>
                   </label>
                 </div>
@@ -61,7 +73,7 @@
             <div>
               <button
                 type="button"
-                class="app-header-login"
+                class="app-header-login button-blue"
                 @click="goLoginPage"
               >
                 登录
@@ -166,8 +178,6 @@ export default {
 }
 .input-wrapper {
   width: 100%;
-  padding-left: 16px;
-  padding-right: 0;
   border-radius: 999px;
   background: #f6f6f6;
   box-sizing: border-box;
@@ -176,7 +186,7 @@ export default {
   display: flex;
   align-items: center;
   height: 34px;
-  padding: 4px 10px;
+  padding: 4px 0 4px 16px;
   font-size: 14px;
   border: 1px solid #ebebeb;
 }
@@ -212,16 +222,5 @@ export default {
 }
 .app-header-login {
   margin-right: 16px;
-}
-.app-header-login:hover {
-  background-color: rgba(0, 102, 255, 0.06);
-}
-.button-primary {
-  color: #fff;
-  background-color: #06f;
-}
-.button-primary:hover {
-  border-color: #005ce6;
-  background-color: #005ce6;
 }
 </style>

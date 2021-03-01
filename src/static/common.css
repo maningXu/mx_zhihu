@@ -1,0 +1,19 @@
+/* page for class */
+
+/* blue button */
+.button-blue {
+  color: #06f;
+  border-color: #06f;
+}
+.button-blue:hover {
+    background-color: rgba(0,102,255,.06);
+}
+/* blue background button */
+.button-primary {
+  color: #fff;
+  background-color: #06f;
+}
+.button-primary:hover {
+  border-color: #005ce6;
+  background-color: #005ce6;
+}

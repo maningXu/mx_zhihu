@@ -44,7 +44,133 @@
           </div>
         </div>
       </div>
-      <div class="question-header-footer">footer</div>
+      <div class="question-header-footer">
+        <div class="question-header-footer-inner">
+          <div class="question-header-footer-main">
+            <div class="question-button-group">
+              <button type="button" class="button-primary">
+                关注问题
+              </button>
+              <button type="button" class="button-blue">
+                <span>
+                  <svg
+                    class="question-button-icon"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                  >
+                    <path
+                      d="M4.076 16.966a4.19 4.19 0 0 1 1.05-1.76l8.568-8.569a.524.524 0 0 1 .741 0l2.928 2.927a.524.524 0 0 1 0 .74l-8.568 8.57c-.49.49-1.096.852-1.761 1.051l-3.528 1.058a.394.394 0 0 1-.49-.488l1.06-3.53zM20.558 4.83c.59.59.59 1.546 0 2.136l-1.693 1.692a.503.503 0 0 1-.712 0l-2.812-2.812a.504.504 0 0 1 0-.712l1.693-1.693a1.51 1.51 0 0 1 2.135 0l1.389 1.389z"
+                    ></path>
+                  </svg>
+                </span>
+                写回答
+              </button>
+            </div>
+            <div class="question-header-actions">
+              <button
+                type="button"
+                class="Button Button--grey Button--withIcon Button--withLabel"
+                style="margin-right: 16px;"
+              >
+                <span>
+                  <svg
+                    class="question-button-icon"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    width="1.2em"
+                    height="1.2em"
+                  >
+                    <path
+                      d="M4 10V8a1 1 0 1 1 2 0v2h2a1 1 0 0 1 0 2H6v2a1 1 0 0 1-2 0v-2H2a1 1 0 0 1 0-2h2zm10.455 2c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-7 6c0-2.66 4.845-4 7.272-4C17.155 14 22 15.34 22 18v1.375c0 .345-.28.625-.625.625H8.08a.625.625 0 0 1-.625-.625V18z"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                </span>
+                邀请回答
+              </button>
+              <div class="GoodQuestionAction">
+                <button type="button">
+                  <span>
+                    <svg
+                      class="question-button-icon"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      width="1.2em"
+                      height="1.2em"
+                    >
+                      <path
+                        d="M14.445 9h5.387s2.997.154 1.95 3.669c-.168.51-2.346 6.911-2.346 6.911s-.763 1.416-2.86 1.416H8.989c-1.498 0-2.005-.896-1.989-2v-7.998c0-.987.336-2.032 1.114-2.639 4.45-3.773 3.436-4.597 4.45-5.83.985-1.13 3.2-.5 3.037 2.362C15.201 7.397 14.445 9 14.445 9zM3 9h2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V10a1 1 0 0 1 1-1z"
+                        fill-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </span>
+                  好问题2122
+                </button>
+              </div>
+              <div>
+                <button type="button">
+                  <span>
+                    <svg
+                      class="question-button-icon"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      width="1.2em"
+                      height="1.2em"
+                    >
+                      <path
+                        d="M10.241 19.313a.97.97 0 0 0-.77.2 7.908 7.908 0 0 1-3.772 1.482.409.409 0 0 1-.38-.637 5.825 5.825 0 0 0 1.11-2.237.605.605 0 0 0-.227-.59A7.935 7.935 0 0 1 3 11.25C3 6.7 7.03 3 12 3s9 3.7 9 8.25-4.373 9.108-10.759 8.063z"
+                        fill-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </span>
+                  79 条评论
+                </button>
+              </div>
+              <div>
+                <div>
+                  <button type="button">
+                    <span>
+                      <svg
+                        class="question-button-icon"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        width="1.2em"
+                        height="1.2em"
+                      >
+                        <path
+                          d="M2.931 7.89c-1.067.24-1.275 1.669-.318 2.207l5.277 2.908 8.168-4.776c.25-.127.477.198.273.39L9.05 14.66l.927 5.953c.18 1.084 1.593 1.376 2.182.456l9.644-15.242c.584-.892-.212-2.029-1.234-1.796L2.93 7.89z"
+                          fill-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </span>
+                    分享
+                  </button>
+                </div>
+              </div>
+              <div class="Popover">
+                <button>
+                  <span>
+                    <svg
+                      class="question-button-icon"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      width="1.2em"
+                      height="1.2em"
+                    >
+                      <path
+                        d="M5 14a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+                        fill-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div>content...</div>
   </div>
@@ -171,5 +297,46 @@ export default {
   margin-top: 4px;
   margin-bottom: -12px;
   background: #fff;
+}
+.question-header-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1000px;
+  height: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+.question-header-footer-main {
+  display: flex;
+  align-items: center;
+  min-width: 694px;
+  width: auto;
+  padding-left: 20px;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+.question-button-group {
+  display: inline-block;
+  margin: 0 -8px;
+}
+.question-button-group button {
+  margin: 0 8px;
+}
+.question-button-icon {
+  vertical-align: text-bottom;
+  margin-right: 4px;
+}
+.question-header-actions {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+}
+.question-header-actions > div button {
+  border: none;
+  background: transparent;
+}
+.question-header-actions > div button:hover {
+  color: #76839b;
 }
 </style>

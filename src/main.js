@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import "./static/global.css";
+import "./static/common.css";
 
 Vue.config.productionTip = false;
 
