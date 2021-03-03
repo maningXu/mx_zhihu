@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <Header></Header>
+    <link-header></link-header>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Header from "/src/components/header/index";
+import LinkHeader from "/src/components/header/index";
 export default {
   data: function() {
     return {};
   },
   components: {
-    Header,
+    LinkHeader,
   },
 };
 </script>
