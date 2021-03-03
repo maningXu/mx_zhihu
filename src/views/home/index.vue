@@ -356,8 +356,9 @@
                     </div>
                     <div class="related-commodities-meta">
                       <div class="related-commodities-book-meta">
-                        6 人读过<span class="related-commodities-book-read"
-                          ><span
+                        6 人读过
+                        <span class="related-commodities-book-read">
+                          <span
                             style="display: inline-flex; align-items: center;"
                           >
                             <svg
@@ -370,9 +371,11 @@
                               <path
                                 d="M16 17.649V2.931a.921.921 0 0 0-.045-.283.943.943 0 0 0-1.182-.604L4.655 5.235A.932.932 0 0 0 4 6.122v14.947c0 .514.421.931.941.931H19.06c.52 0 .941-.417.941-.93V7.292a.936.936 0 0 0-.941-.931h-.773v12.834a.934.934 0 0 1-.83.924L6.464 21.416c-.02.002 2.94-.958 8.883-2.881a.932.932 0 0 0 .653-.886z"
                                 fill-rule="evenodd"
-                              ></path></svg></span
-                          >阅读</span
-                        >
+                              ></path>
+                            </svg>
+                          </span>
+                          阅读
+                        </span>
                       </div>
                     </div>
                   </div></a
@@ -398,20 +401,25 @@
                     <div class="related-commodities-meta">
                       <div class="related-commodities-book-meta">
                         5 人读过
-                        <span class="related-commodities-book-read"
-                          ><svg
-                            class="Zi Zi--Ebook"
-                            width="13"
-                            height="14"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
+                        <span class="related-commodities-book-read">
+                          <span
+                            style="display: inline-flex; align-items: center;"
                           >
-                            <path
-                              d="M16 17.649V2.931a.921.921 0 0 0-.045-.283.943.943 0 0 0-1.182-.604L4.655 5.235A.932.932 0 0 0 4 6.122v14.947c0 .514.421.931.941.931H19.06c.52 0 .941-.417.941-.93V7.292a.936.936 0 0 0-.941-.931h-.773v12.834a.934.934 0 0 1-.83.924L6.464 21.416c-.02.002 2.94-.958 8.883-2.881a.932.932 0 0 0 .653-.886z"
-                              fill-rule="evenodd"
-                            ></path></svg
-                          >阅读</span
-                        >
+                            <svg
+                              class="Zi Zi--Ebook"
+                              width="13"
+                              height="14"
+                              fill="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M16 17.649V2.931a.921.921 0 0 0-.045-.283.943.943 0 0 0-1.182-.604L4.655 5.235A.932.932 0 0 0 4 6.122v14.947c0 .514.421.931.941.931H19.06c.52 0 .941-.417.941-.93V7.292a.936.936 0 0 0-.941-.931h-.773v12.834a.934.934 0 0 1-.83.924L6.464 21.416c-.02.002 2.94-.958 8.883-2.881a.932.932 0 0 0 .653-.886z"
+                                fill-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </span>
+                          阅读
+                        </span>
                       </div>
                     </div>
                   </div></a
@@ -436,10 +444,12 @@
                     </div>
                     <div class="related-commodities-meta">
                       <div class="related-commodities-book-meta">
-                        4 人读过<span class="related-commodities-book-read"
-                          ><span
+                        4 人读过
+                        <span class="related-commodities-book-read">
+                          <span
                             style="display: inline-flex; align-items: center;"
-                            ><svg
+                          >
+                            <svg
                               class="Zi Zi--Ebook"
                               width="13"
                               height="14"
@@ -449,120 +459,128 @@
                               <path
                                 d="M16 17.649V2.931a.921.921 0 0 0-.045-.283.943.943 0 0 0-1.182-.604L4.655 5.235A.932.932 0 0 0 4 6.122v14.947c0 .514.421.931.941.931H19.06c.52 0 .941-.417.941-.93V7.292a.936.936 0 0 0-.941-.931h-.773v12.834a.934.934 0 0 1-.83.924L6.464 21.416c-.02.002 2.94-.958 8.883-2.881a.932.932 0 0 0 .653-.886z"
                                 fill-rule="evenodd"
-                              ></path></svg></span
-                          >阅读</span
-                        >
+                              ></path>
+                            </svg>
+                          </span>
+                          阅读
+                        </span>
                       </div>
                     </div>
                   </div></a
                 >
               </div>
             </div>
-            <div class="Card">
-              <div class="Pc-card Card">
+            <div class="card">
+              <div class="pc-card card">
                 <a
-                  class="Banner-link"
                   href="https://www.zhihu.com/xen/market/ecom-page/1349692661696274432?utm_source=web"
                   target="_blank"
-                  ><div class="Banner-adTag">广告</div>
+                >
+                  <div class="banner-adTag">广告</div>
                   <img
-                    class="Banner-image"
+                    class="banner-image"
                     src="https://pic3.zhimg.com/v2-b83364ebeac405b6fb11c2d74bd7feb2_540x450.png"
                     alt="广告"
-                /></a>
+                  />
+                </a>
                 <div
-                  class="Pc-card-button-close "
+                  class="pc-card-button-close"
                   data-tooltip="不再显示"
                   data-tooltip-position="bottom"
                 >
-                  svg
+                  <svg viewBox="0 0 12 12">
+                    <path
+                      fill-rule="evenodd"
+                      d="M3 2L2 3l3 3-3 3 1 1 3-3 3 3 1-1-3-3 3-3-1-1-3 3"
+                    ></path>
+                  </svg>
                 </div>
               </div>
             </div>
-            <footer class="Footer">
+            <footer class="footer">
               <a
-                class="Footer-item"
+                class="footer-item"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="//liukanshan.zhihu.com/"
                 >刘看山</a
-              ><span class="Footer-dot"></span
+              ><span class="footer-dot"></span
               ><a
-                class="Footer-item"
+                class="footer-item"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="/question/19581624"
                 >知乎指南</a
-              ><span class="Footer-dot"></span
+              ><span class="footer-dot"></span
               ><a
-                class="Footer-item"
+                class="footer-item"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="/term/zhihu-terms"
                 >知乎协议</a
-              ><span class="Footer-dot"></span
+              ><span class="footer-dot"></span
               ><a
-                class="Footer-item"
+                class="footer-item"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="/term/privacy"
                 >知乎隐私保护指引</a
-              ><br /><a class="Footer-item" target="_blank" href="/app">应用</a
-              ><span class="Footer-dot"></span
+              ><br /><a class="footer-item" target="_blank" href="/app">应用</a
+              ><span class="footer-dot"></span
               ><a
-                class="Footer-item"
+                class="footer-item"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://app.mokahr.com/apply/zhihu"
                 >工作</a
-              ><span class="Footer-dot"></span
-              ><button type="button" class="Button OrgCreateButton">
+              ><span class="footer-dot"></span
+              ><button type="button" class="orgCreateButton">
                 申请开通知乎机构号</button
               ><br /><a
-                class="Footer-item"
+                class="footer-item"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://zhuanlan.zhihu.com/p/28852607"
                 >侵权举报</a
-              ><span class="Footer-dot"></span
+              ><span class="footer-dot"></span
               ><a
-                class="Footer-item"
+                class="footer-item"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="http://www.12377.cn"
                 >网上有害信息举报专区</a
               ><br /><a
-                class="Footer-item"
+                class="footer-item"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://tsm.miit.gov.cn/dxxzsp/"
                 >京 ICP 证 110745 号</a
               ><br /><a
-                class="Footer-item"
+                class="footer-item"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://beian.miit.gov.cn/"
                 >京 ICP 备 13052560 号 - 1</a
               ><br /><a
-                class="Footer-item"
+                class="footer-item"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020088"
                 ><img
                   src="https://pic3.zhimg.com/80/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png"
                 />京公网安备 11010802020088 号</a
-              ><br /><span class="Footer-item"
+              ><br /><span class="footer-item"
                 >互联网药品信息服务资格证书<br />（京）- 非经营性 - 2017 -
                 0067</span
-              ><span class="Footer-item">违法和不良信息举报：010-82716601</span
+              ><span class="footer-item">违法和不良信息举报：010-82716601</span
               ><br /><a
-                class="Footer-item"
+                class="footer-item"
                 target="_blank"
                 href="/term/child-jubao"
                 >儿童色情信息举报专区</a
-              ><br /><a class="Footer-item" target="_blank" href="/certificates"
+              ><br /><a class="footer-item" target="_blank" href="/certificates"
                 >证照中心</a
-              ><br /><a class="Footer-item" target="_blank" href="/contact"
+              ><br /><a class="footer-item" target="_blank" href="/contact"
                 >联系我们</a
               ><span> © 2021 知乎</span>
             </footer>
@@ -752,6 +770,37 @@ export default {
 .question-side-column {
   width: 296px;
 }
+.card {
+  margin-bottom: 10px;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgb(18 18 18 / 10%);
+  box-sizing: border-box;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 20px;
+  border-bottom: 1px solid #f6f6f6;
+  box-sizing: border-box;
+}
+.card-header-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.card-section {
+  padding: 16px 20px;
+  position: relative;
+}
+
+.question-side-column .card:last-of-type {
+  margin-bottom: 0;
+}
 .app-banner-link {
   display: block;
 }
@@ -911,7 +960,51 @@ export default {
   background: #06f;
   padding: 3px 6px 3px 3px;
   border-radius: 3px;
-  line-height: 1;
   color: #fff;
+}
+.banner-adTag {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 45px;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+  color: #ebebeb;
+  background-color: #000;
+  opacity: 0.5;
+  font-size: 12px;
+  line-height: 27px;
+  text-align: center;
+}
+.banner-image {
+  display: block;
+  width: 100%;
+  border-radius: 2px;
+}
+.footer {
+  display: block;
+  padding: 10px 0 10px 5px;
+  font-size: 13px;
+  line-height: 2;
+  color: #8590a6;
+}
+.footer-item {
+  display: inline-flex;
+  align-items: center;
+}
+a.footer-item:hover {
+  cursor: pointer;
+  color: #175199;
+}
+.footer-dot::after {
+  margin: 0 5px;
+  content: "\B7";
+}
+.orgCreateButton {
+  border: none;
+  padding: 0;
+}
+.orgCreateButton:hover {
+  background: transparent;
 }
 </style>

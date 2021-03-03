@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "../views/home/index.vue";
 import Zhihu from "../views/zhihu.vue";
 import Vip from "../views/vip.vue";
 import Explore from "../views/explore.vue";
