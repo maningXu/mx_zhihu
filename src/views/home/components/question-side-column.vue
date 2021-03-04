@@ -2,9 +2,9 @@
   <div class="question-side-column">
     <div>
       <div>
-        <div class="card">
-          <a class="app-banner-link" href="http://zhi.hu/BDXoI"
-            ><div class="app-banner-layout">
+        <div class="card" key="qrcode-download">
+          <a class="app-banner-link" href="http://zhi.hu/BDXoI">
+            <div class="app-banner-layout">
               <img
                 class="app-banner-qrcode"
                 src="https://static.zhihu.com/heifetz/assets/sidebar-download-qrcode.7caef4dd.png"
@@ -19,18 +19,15 @@
             </div>
           </a>
         </div>
-        <div class="card">
+        <div class="card" key="ad-special">
           <div class="pc-card card">
-            <a href="https://www.zhihu.com/special/19600305" target="_blank"
-              ><img
+            <a href="https://www.zhihu.com/special/19600305" target="_blank">
+              <img
                 src="https://pic4.zhimg.com/v2-095140d12ddec3db33f48e29a049fed3_540x450.jpeg"
                 alt="广告"
-            /></a>
-            <div
-              class="pc-card-button-close"
-              data-tooltip="不再显示"
-              data-tooltip-position="bottom"
-            >
+              />
+            </a>
+            <div class="pc-card-button-close">
               <svg viewBox="0 0 12 12">
                 <path
                   fill-rule="evenodd"
@@ -40,7 +37,7 @@
             </div>
           </div>
         </div>
-        <div class="card">
+        <div class="card" key="similar-question">
           <div class="card-header">
             <div class="card-header-text">相关问题</div>
           </div>
@@ -57,76 +54,32 @@
             </div>
           </div>
         </div>
-        <div class="card">
+        <div class="card" key="related-recommend">
           <div class="card-header">
             <div class="card-header-text">相关推荐</div>
           </div>
           <div class="card-section">
-            <a target="_blank" type="button" class="related-commodities-item">
-              <img
-                src="https://pic2.zhimg.com/90/v2-09bd7fb98b2eb4b14c67dce948933c5e_250x0.jpg?source=31184dd1"
-                alt="live"
-              />
-              <div class="related-commodities-content">
-                <div
-                  class="related-commodities-subject"
-                  data-tooltip="网站规划与网页设计"
-                >
-                  网站规划与网页设计
-                </div>
-                <div class="related-commodities-description">
-                  张兵义 吴燕军 袁彩虹等编著
-                </div>
-                <div class="related-commodities-meta">
-                  <div class="related-commodities-book-meta">
-                    6 人读过
-                    <span class="related-commodities-book-read">
-                      <span style="display: inline-flex; align-items: center;">
-                        <svg
-                          class="Zi Zi--Ebook"
-                          width="13"
-                          height="14"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M16 17.649V2.931a.921.921 0 0 0-.045-.283.943.943 0 0 0-1.182-.604L4.655 5.235A.932.932 0 0 0 4 6.122v14.947c0 .514.421.931.941.931H19.06c.52 0 .941-.417.941-.93V7.292a.936.936 0 0 0-.941-.931h-.773v12.834a.934.934 0 0 1-.83.924L6.464 21.416c-.02.002 2.94-.958 8.883-2.881a.932.932 0 0 0 .653-.886z"
-                            fill-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </span>
-                      阅读
-                    </span>
-                  </div>
-                </div>
-              </div></a
-            >
             <a
+              v-for="(item, index) in relatedRecommendList"
+              :key="index"
               target="_blank"
-              href="/pub/book/119915950"
               type="button"
               class="related-commodities-item"
-              ><img
-                src="https://pic1.zhimg.com/90/v2-f2b3fc3dcb59035343ed1a4d1b536a6f_250x0.jpg?source=31184dd1"
-                alt="live"
-              />
+            >
+              <img :src="item.src" alt="live" />
               <div class="related-commodities-content">
-                <div
-                  class="related-commodities-subject"
-                  data-tooltip="电子商务网站推广"
-                >
-                  电子商务网站推广
+                <div class="related-commodities-subject">
+                  {{ item.subject }}
                 </div>
                 <div class="related-commodities-description">
-                  童红斌主编
+                  {{ item.description }}
                 </div>
                 <div class="related-commodities-meta">
                   <div class="related-commodities-book-meta">
-                    5 人读过
+                    {{ item.count }} 人读过
                     <span class="related-commodities-book-read">
-                      <span style="display: inline-flex; align-items: center;">
+                      <span style="display: inline-flex; align-items: center">
                         <svg
-                          class="Zi Zi--Ebook"
                           width="13"
                           height="14"
                           fill="currentColor"
@@ -142,54 +95,11 @@
                     </span>
                   </div>
                 </div>
-              </div></a
-            >
-            <a
-              target="_blank"
-              href="/pub/book/119940967"
-              type="button"
-              class="related-commodities-item"
-              ><img
-                src="https://pic1.zhimg.com/90/v2-03b60cad0c0e32401c5070b764233d0d_250x0.jpg?source=31184dd1"
-                alt="live"
-              />
-              <div class="related-commodities-content">
-                <div
-                  class="related-commodities-subject"
-                  data-tooltip="网页制作与网站建设宝典"
-                >
-                  网页制作与网站建设宝典
-                </div>
-                <div class="related-commodities-description">
-                  张春晓 黄勇等编著
-                </div>
-                <div class="related-commodities-meta">
-                  <div class="related-commodities-book-meta">
-                    4 人读过
-                    <span class="related-commodities-book-read">
-                      <span style="display: inline-flex; align-items: center;">
-                        <svg
-                          class="Zi Zi--Ebook"
-                          width="13"
-                          height="14"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M16 17.649V2.931a.921.921 0 0 0-.045-.283.943.943 0 0 0-1.182-.604L4.655 5.235A.932.932 0 0 0 4 6.122v14.947c0 .514.421.931.941.931H19.06c.52 0 .941-.417.941-.93V7.292a.936.936 0 0 0-.941-.931h-.773v12.834a.934.934 0 0 1-.83.924L6.464 21.416c-.02.002 2.94-.958 8.883-2.881a.932.932 0 0 0 .653-.886z"
-                            fill-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </span>
-                      阅读
-                    </span>
-                  </div>
-                </div>
-              </div></a
-            >
+              </div>
+            </a>
           </div>
         </div>
-        <div class="card">
+        <div class="card" key="ad-market">
           <div class="pc-card card">
             <a
               href="https://www.zhihu.com/xen/market/ecom-page/1349692661696274432?utm_source=web"
@@ -202,11 +112,7 @@
                 alt="广告"
               />
             </a>
-            <div
-              class="pc-card-button-close"
-              data-tooltip="不再显示"
-              data-tooltip-position="bottom"
-            >
+            <div class="pc-card-button-close">
               <svg viewBox="0 0 12 12">
                 <path
                   fill-rule="evenodd"
@@ -222,83 +128,117 @@
             target="_blank"
             rel="noopener noreferrer"
             href="//liukanshan.zhihu.com/"
-            >刘看山</a
-          ><span class="footer-dot"></span
-          ><a
+          >
+            刘看山
+          </a>
+          <span class="footer-dot"></span>
+          <a
             class="footer-item"
             target="_blank"
             rel="noopener noreferrer"
             href="/question/19581624"
-            >知乎指南</a
-          ><span class="footer-dot"></span
-          ><a
+          >
+            知乎指南
+          </a>
+          <span class="footer-dot"></span>
+          <a
             class="footer-item"
             target="_blank"
             rel="noopener noreferrer"
             href="/term/zhihu-terms"
-            >知乎协议</a
-          ><span class="footer-dot"></span
-          ><a
+          >
+            知乎协议
+          </a>
+          <span class="footer-dot"></span>
+          <a
             class="footer-item"
             target="_blank"
             rel="noopener noreferrer"
             href="/term/privacy"
-            >知乎隐私保护指引</a
-          ><br /><a class="footer-item" target="_blank" href="/app">应用</a
-          ><span class="footer-dot"></span
-          ><a
+          >
+            知乎隐私保护指引
+          </a>
+          <br />
+          <a class="footer-item" target="_blank" href="/app">应用</a>
+          <span class="footer-dot"></span>
+          <a
             class="footer-item"
             target="_blank"
             rel="noopener noreferrer"
             href="https://app.mokahr.com/apply/zhihu"
-            >工作</a
-          ><span class="footer-dot"></span
-          ><button type="button" class="orgCreateButton">
-            申请开通知乎机构号</button
-          ><br /><a
+          >
+            工作
+          </a>
+          <span class="footer-dot"></span>
+          <button type="button" class="orgCreateButton">
+            申请开通知乎机构号
+          </button>
+          <br />
+          <a
             class="footer-item"
             target="_blank"
             rel="noopener noreferrer"
             href="https://zhuanlan.zhihu.com/p/28852607"
-            >侵权举报</a
-          ><span class="footer-dot"></span
-          ><a
+          >
+            侵权举报
+          </a>
+          <span class="footer-dot"></span>
+          <a
             class="footer-item"
             target="_blank"
             rel="noopener noreferrer"
             href="http://www.12377.cn"
-            >网上有害信息举报专区</a
-          ><br /><a
+          >
+            网上有害信息举报专区
+          </a>
+          <br />
+          <a
             class="footer-item"
             target="_blank"
             rel="noopener noreferrer"
             href="https://tsm.miit.gov.cn/dxxzsp/"
-            >京 ICP 证 110745 号</a
-          ><br /><a
+          >
+            京 ICP 证 110745 号
+          </a>
+          <br />
+          <a
             class="footer-item"
             target="_blank"
             rel="noopener noreferrer"
             href="https://beian.miit.gov.cn/"
-            >京 ICP 备 13052560 号 - 1</a
-          ><br /><a
+          >
+            京 ICP 备 13052560 号 - 1
+          </a>
+          <br />
+          <a
             class="footer-item"
             target="_blank"
             rel="noopener noreferrer"
             href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020088"
-            ><img
+          >
+            <img
               src="https://pic3.zhimg.com/80/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png"
-            />京公网安备 11010802020088 号</a
-          ><br /><span class="footer-item"
-            >互联网药品信息服务资格证书<br />（京）- 非经营性 - 2017 -
-            0067</span
-          ><span class="footer-item">违法和不良信息举报：010-82716601</span
-          ><br /><a class="footer-item" target="_blank" href="/term/child-jubao"
-            >儿童色情信息举报专区</a
-          ><br /><a class="footer-item" target="_blank" href="/certificates"
-            >证照中心</a
-          ><br /><a class="footer-item" target="_blank" href="/contact"
-            >联系我们</a
-          ><span> © 2021 知乎</span>
+            />
+            京公网安备 11010802020088 号
+          </a>
+          <br />
+          <span class="footer-item">
+            互联网药品信息服务资格证书
+            <br />
+            （京）- 非经营性 - 2017 - 0067
+          </span>
+          <span class="footer-item">违法和不良信息举报：010-82716601</span>
+          <br />
+          <a class="footer-item" target="_blank" href="/term/child-jubao">
+            儿童色情信息举报专区
+          </a>
+          <br />
+          <a class="footer-item" target="_blank" href="/certificates">
+            证照中心
+          </a>
+          <br />
+          <a class="footer-item" target="_blank" href="/contact"> 联系我们 </a>
+          <span> © 2021 知乎</span>
         </footer>
       </div>
     </div>
@@ -307,7 +247,7 @@
 
 <script>
 export default {
-  data: function() {
+  data: function () {
     return {
       similarQuestionList: [
         {
@@ -331,6 +271,29 @@ export default {
         {
           content: "怎样才能做好网站？",
           count: 7,
+        },
+      ],
+      relatedRecommendList: [
+        {
+          src:
+            "https://pic2.zhimg.com/90/v2-09bd7fb98b2eb4b14c67dce948933c5e_250x0.jpg?source=31184dd1",
+          subject: "网站规划与网页设计",
+          description: "张兵义 吴燕军 袁彩虹等编著",
+          count: 6,
+        },
+        {
+          src:
+            "https://pic1.zhimg.com/90/v2-f2b3fc3dcb59035343ed1a4d1b536a6f_250x0.jpg?source=31184dd1",
+          subject: "电子商务网站推广",
+          description: "童红斌主编",
+          count: 5,
+        },
+        {
+          src:
+            "https://pic1.zhimg.com/90/v2-03b60cad0c0e32401c5070b764233d0d_250x0.jpg?source=31184dd1",
+          subject: "网页制作与网站建设宝典",
+          description: "张春晓 黄勇等编著",
+          count: 4,
         },
       ],
     };
@@ -475,6 +438,9 @@ export default {
   border-radius: 0;
   color: #8590a6;
 }
+.related-commodities-item:hover .related-commodities-subject {
+  color: #175199;
+}
 .related-commodities-item:not(:first-child) {
   position: relative;
   margin-top: 10px;
@@ -533,6 +499,7 @@ export default {
   padding: 3px 6px 3px 3px;
   border-radius: 3px;
   color: #fff;
+  line-height: 1;
 }
 .banner-adTag {
   position: absolute;
