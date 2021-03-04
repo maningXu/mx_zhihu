@@ -168,6 +168,82 @@
         </div>
       </div>
     </div>
+    <div class="popover-content" style="left: 255.429px; top: 101.714px">
+      <div class="hover-card-container">
+        <div class="hover-card">
+          <div>
+            <div class="hover-card-titleContainer">
+              <img
+                class="avatar"
+                width="68"
+                height="68"
+                src="https://pic3.zhimg.com/80/v2-e811eedd93d21c5258733e5cc8182d2f_im.jpg"
+                srcset="
+                  https://pic3.zhimg.com/80/v2-e811eedd93d21c5258733e5cc8182d2f_xl.jpg 2x
+                "
+              />
+              <div class="hover-card-titleText">
+                <div class="hover-card-title">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="//www.zhihu.com/topic/19550581"
+                    >学习</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hover-card-item">
+            <div class="hover-card-description">
+              学习，是指通过阅读、听讲、思考、研究、实践等途径获得知识或技能的过程。学习分为狭义与广义两种：狭义：通过阅读、听讲、研究、观察、理解、探索、实验、实践等手段获得知识或技能的过程，是一种使个体可以得到持续变化（知识和技能，方法与过程，情感与价值的改善和升华）的行为方式。例如通过学校教育获得知识的过程。广义：是人在生活过程中，通过获得经验而产生的行为或行为潜能的相对持久的行为方式。
+            </div>
+          </div>
+          <div class="hover-card-item">
+            <div class="hover-card-number-board">
+              <a
+                target="_blank"
+                href="//www.zhihu.com/topic/19550581/questions"
+                type="button"
+                ><div class="hover-card-number-board-itemInner">
+                  <div class="hover-card-number-board-itemName">问题</div>
+                  <strong
+                    class="hover-card-number-board-itemValue"
+                    title="380838"
+                    >380,838</strong
+                  >
+                </div></a
+              ><a
+                target="_blank"
+                href="//www.zhihu.com/topic/19550581/top-answers"
+                type="button"
+                ><div class="hover-card-number-board-itemInner">
+                  <div class="hover-card-number-board-itemName">精华</div>
+                  <strong class="hover-card-number-board-itemValue" title="999"
+                    >999</strong
+                  >
+                </div></a
+              ><a
+                target="_blank"
+                href="//www.zhihu.com/topic/19550581/followers"
+                type="button"
+                ><div class="hover-card-number-board-itemInner">
+                  <div class="hover-card-number-board-itemName">关注者</div>
+                  <strong
+                    class="hover-card-number-board-itemValue"
+                    title="716983"
+                    >716,983</strong
+                  >
+                </div></a
+              >
+            </div>
+            <div class="hover-card-buttons">
+              <button type="button" class="button-primary">关注话题</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -198,6 +274,11 @@ export default {
 </script>
 
 <style scoped>
+img {
+  width: 68px;
+  aspect-ratio: auto 68 / 68;
+  height: 68px;
+}
 .question-header {
   min-width: 1032px;
   padding: 16px 0;
@@ -328,5 +409,108 @@ export default {
 }
 .question-header-actions > div button:hover {
   color: #76839b;
+}
+.popover-content {
+  position: absolute;
+  z-index: 203;
+  margin-top: 8px;
+  border-radius: 4px;
+  background: transparent;
+}
+.hover-card-container {
+  width: 400px;
+  max-height: 600px;
+}
+.hover-card {
+  padding: 0 12px 16px;
+  font-size: 14px;
+  opacity: 1;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: 0 5px 20px rgb(18 18 18 / 10%);
+  transition: opacity 0.3s ease;
+}
+.hover-card-titleContainer {
+  position: relative;
+  display: flex;
+  margin-top: 20px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f6f6f6;
+  align-items: center;
+}
+.avatar {
+  position: absolute;
+  top: -20px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  background: #fff;
+  object-fit: cover;
+}
+.hover-card-titleText {
+  display: flex;
+  min-height: 42px;
+  padding-bottom: 2px;
+  margin-left: 84px;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  flex: 1 1;
+}
+.hover-card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 500;
+}
+.hover-card-item {
+  padding: 8px 0;
+  line-height: 1.75;
+  border-bottom: 1px solid #f6f6f6;
+}
+.hover-card-item:last-child {
+  padding: 8px 16px;
+  text-align: center;
+  border: 0;
+}
+.hover-card-description {
+  display: -webkit-box;
+  max-height: 73.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+  line-height: 1.6;
+}
+.hover-card-number-board {
+  display: flex;
+}
+.hover-card-number-board > a {
+  flex: 1 1;
+}
+.hover-card-buttons {
+  margin-top: 16px;
+}
+.hover-card-buttons button {
+  width: 144px;
+}
+.hover-card-number-board-itemInner {
+  text-align: center;
+  line-height: 1.6;
+}
+.hover-card-number-board-itemInner:hover .hover-card-number-board-itemName,
+.hover-card-number-board-itemInner:hover .hover-card-number-board-itemValue {
+  color: #175199;
+}
+.hover-card-number-board-itemName {
+  font-size: 14px;
+  color: #8590a6;
+}
+.hover-card-number-board-itemValue {
+  display: inline-block;
+  font-size: 18px;
+  color: #121212;
+  font-weight: 600;
 }
 </style>
