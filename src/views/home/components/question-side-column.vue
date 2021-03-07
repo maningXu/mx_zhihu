@@ -23,7 +23,7 @@
           <div class="pc-card card">
             <a href="https://www.zhihu.com/special/19600305" target="_blank">
               <img
-                src="https://pic4.zhimg.com/v2-095140d12ddec3db33f48e29a049fed3_540x450.jpeg"
+                src="https://pic1.zhimg.com/v2-e167c03fa8e1bf28da7482a9a88f726c_540x450.jpeg"
                 alt="广告"
               />
             </a>
