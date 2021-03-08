@@ -1,6 +1,12 @@
 <template>
   <div>
-    <header class="app-header">
+    <header
+      :class="[
+        'app-header',
+        { 'is-fixed': isHeaderFixed },
+        { 'is-hide': isHeaderHide },
+      ]"
+    >
       <div class="app-header-inner">
         <a @click="goLoginPage">
           <svg viewBox="0 0 64 30" fill="#0066FF" width="64" height="30">
@@ -48,7 +54,7 @@
                       type="button"
                       class="search-button"
                     >
-                      <span style="display: inline-flex; paddingTop: 10px">
+                      <span style="display: inline-flex; paddingtop: 10px">
                         <svg
                           fill="currentColor"
                           viewBox="0 0 24 24"
@@ -85,13 +91,22 @@
           </div>
         </div>
       </div>
+      <div>
+        <div :class="['page-header', { 'is-shown': isHeaderHide }]">
+          <div class="question-header-content">
+            <div class="question-header-main">
+              <h1 class="question-header-title">有哪些值得每天一看的网站？</h1>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
   </div>
 </template>
 
 <script>
 export default {
-  data: function() {
+  data: function () {
     return {
       list: [
         { title: "首页", to: "/zhihu", href: "//www.zhihu.com/" },
@@ -103,11 +118,44 @@ export default {
           href: "//www.zhihu.com/question/waiting",
         },
       ],
+      isHeaderFixed: false,
+      isHeaderHide: false,
     };
   },
+  mounted() {
+    window.addEventListener("mousewheel", this.handleScroll, false);
+  },
   methods: {
-    goLoginPage: function() {
+    goLoginPage: function () {
       window.open("https://www.zhihu.com/");
+    },
+    handleScroll: function (e) {
+      // judge the direction of wheel
+      const direction = e.deltaY > 0 ? "down" : "up";
+      // get the distance of the scroll
+      let scrollTop = window.pageYOffset;
+      // document.documentElement.scrollTop ||
+      // document.body.scrollTop;
+      console.log(scrollTop, "----");
+      if (direction === "down") {
+        let distance = scrollTop + 100;
+        // fixed header
+        if (distance > 0) {
+          this.isHeaderFixed = true;
+        }
+        // hide header
+        if (distance >= 200) {
+          this.isHeaderHide = true;
+        }
+      } else {
+        let distance = scrollTop - 100;
+        if (distance <= 0) {
+          this.isHeaderFixed = false;
+        }
+        if (distance <= 100) {
+          this.isHeaderHide = false;
+        }
+      }
     },
   },
 };
@@ -115,9 +163,19 @@ export default {
 
 <style scoped>
 .app-header {
+  position: relative;
   background: #fff;
   min-width: 1000px;
   box-shadow: 0 1px 3px rgb(18 18 18 / 10%);
+}
+.is-fixed {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 100;
+}
+.is-hide .app-header-inner {
+  transform: translateY(-100%);
 }
 .app-header-inner {
   display: flex;
@@ -222,5 +280,41 @@ export default {
 }
 .app-header-login {
   margin-right: 16px;
+}
+.page-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s;
+  z-index: -1;
+}
+.page-header:not(.is-shown) {
+  transform: translateY(100%);
+}
+.question-header-content {
+  display: flex;
+  align-items: center;
+  width: 1000px;
+  height: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+.question-header-main {
+  width: 694px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+.question-header-title {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  line-height: 32px;
+  color: #121212;
+  font-size: 22px;
+  font-weight: 600;
 }
 </style>
