@@ -136,7 +136,6 @@ export default {
       let scrollTop = window.pageYOffset;
       // document.documentElement.scrollTop ||
       // document.body.scrollTop;
-      console.log(scrollTop, "----");
       if (direction === "down") {
         let distance = scrollTop + 100;
         // fixed header
