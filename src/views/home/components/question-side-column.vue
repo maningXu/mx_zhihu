@@ -79,12 +79,7 @@
                     {{ item.count }} 人读过
                     <span class="related-commodities-book-read">
                       <span style="display: inline-flex; align-items: center">
-                        <svg
-                          width="13"
-                          height="14"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
+                        <svg width="13" height="14" fill="currentColor" viewBox="0 0 24 24">
                           <path
                             d="M16 17.649V2.931a.921.921 0 0 0-.045-.283.943.943 0 0 0-1.182-.604L4.655 5.235A.932.932 0 0 0 4 6.122v14.947c0 .514.421.931.941.931H19.06c.52 0 .941-.417.941-.93V7.292a.936.936 0 0 0-.941-.931h-.773v12.834a.934.934 0 0 1-.83.924L6.464 21.416c-.02.002 2.94-.958 8.883-2.881a.932.932 0 0 0 .653-.886z"
                             fill-rule="evenodd"
@@ -141,21 +136,11 @@
             知乎指南
           </a>
           <span class="footer-dot"></span>
-          <a
-            class="footer-item"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="/term/zhihu-terms"
-          >
+          <a class="footer-item" target="_blank" rel="noopener noreferrer" href="/term/zhihu-terms">
             知乎协议
           </a>
           <span class="footer-dot"></span>
-          <a
-            class="footer-item"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="/term/privacy"
-          >
+          <a class="footer-item" target="_blank" rel="noopener noreferrer" href="/term/privacy">
             知乎隐私保护指引
           </a>
           <br />
@@ -216,9 +201,7 @@
             rel="noopener noreferrer"
             href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020088"
           >
-            <img
-              src="https://pic3.zhimg.com/80/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png"
-            />
+            <img src="https://pic3.zhimg.com/80/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png" />
             京公网安备 11010802020088 号
           </a>
           <br />
@@ -247,58 +230,57 @@
 
 <script>
 export default {
-  data: function () {
+  data: function() {
     return {
       similarQuestionList: [
         {
           content:
-            "假设全球的电子设备忽然强行插进一条网站，网站自称他们里面的视频，都是平行世界里发生的，会有什么影响? ",
-          count: 7,
+            '假设全球的电子设备忽然强行插进一条网站，网站自称他们里面的视频，都是平行世界里发生的，会有什么影响? ',
+          count: 7
         },
         {
-          content:
-            "为什么很多用户提供内容的网站都有“举报”功能？这个功能为什么不叫“投诉”呢？",
-          count: 12,
+          content: '为什么很多用户提供内容的网站都有“举报”功能？这个功能为什么不叫“投诉”呢？',
+          count: 12
         },
         {
-          content: "App营销推广网站有哪些？想学学",
-          count: 8,
+          content: 'App营销推广网站有哪些？想学学',
+          count: 8
         },
         {
-          content: "为什么一些用户体验很好的网站很少让人熟知呢？",
-          count: 17,
+          content: '为什么一些用户体验很好的网站很少让人熟知呢？',
+          count: 17
         },
         {
-          content: "怎样才能做好网站？",
-          count: 7,
-        },
+          content: '怎样才能做好网站？',
+          count: 7
+        }
       ],
       relatedRecommendList: [
         {
           src:
-            "https://pic2.zhimg.com/90/v2-09bd7fb98b2eb4b14c67dce948933c5e_250x0.jpg?source=31184dd1",
-          subject: "网站规划与网页设计",
-          description: "张兵义 吴燕军 袁彩虹等编著",
-          count: 6,
+            'https://pic2.zhimg.com/90/v2-09bd7fb98b2eb4b14c67dce948933c5e_250x0.jpg?source=31184dd1',
+          subject: '网站规划与网页设计',
+          description: '张兵义 吴燕军 袁彩虹等编著',
+          count: 6
         },
         {
           src:
-            "https://pic1.zhimg.com/90/v2-f2b3fc3dcb59035343ed1a4d1b536a6f_250x0.jpg?source=31184dd1",
-          subject: "电子商务网站推广",
-          description: "童红斌主编",
-          count: 5,
+            'https://pic1.zhimg.com/90/v2-f2b3fc3dcb59035343ed1a4d1b536a6f_250x0.jpg?source=31184dd1',
+          subject: '电子商务网站推广',
+          description: '童红斌主编',
+          count: 5
         },
         {
           src:
-            "https://pic1.zhimg.com/90/v2-03b60cad0c0e32401c5070b764233d0d_250x0.jpg?source=31184dd1",
-          subject: "网页制作与网站建设宝典",
-          description: "张春晓 黄勇等编著",
-          count: 4,
-        },
-      ],
-    };
-  },
-};
+            'https://pic1.zhimg.com/90/v2-03b60cad0c0e32401c5070b764233d0d_250x0.jpg?source=31184dd1',
+          subject: '网页制作与网站建设宝典',
+          description: '张春晓 黄勇等编著',
+          count: 4
+        }
+      ]
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -453,7 +435,7 @@ export default {
   left: 0;
   right: 0;
   display: block;
-  content: "";
+  content: '';
 }
 .related-commodities-item > img {
   width: 80px;
@@ -537,7 +519,7 @@ a.footer-item:hover {
 }
 .footer-dot::after {
   margin: 0 5px;
-  content: "\B7";
+  content: '\B7';
 }
 .orgCreateButton {
   border: none;
