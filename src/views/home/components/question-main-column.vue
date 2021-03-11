@@ -75,8 +75,9 @@
                   </p>
                   <figure>
                     <img
-                      src="https://pic4.zhimg.com/80/v2-639c333ba8d5545ce44b9b5b60b83fe3_1440w.jpg?source=1940ef5c"
+                      :src="imgConfig.slantFir.src"
                       width="1814"
+                      @click="zoomImg(imgConfig.slantFir.src)"
                     />
                   </figure>
                   <p>
@@ -85,8 +86,9 @@
                   </p>
                   <figure>
                     <img
-                      src="https://pic2.zhimg.com/80/v2-ac44b1432b74cb9528e5a47eded0bcae_1440w.jpg?source=1940ef5c"
+                      :src="imgConfig.slantSec.src"
                       width="1920"
+                      @click="zoomImg(imgConfig.slantSec.src)"
                     />
                   </figure>
                   <p>
@@ -271,11 +273,37 @@
         </div>
       </div>
     </div>
+    <div v-show="isZoomInImg" class="zoom-in-img-wrapper">
+      <img :src="zoomInImgSrc" @click="zoomImg" />
+    </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data: function() {
+    return {
+      zoomInImgSrc: '',
+      isZoomInImg: false, // the current img display largest size
+      imgConfig: {
+        slantFir: {
+          src:
+            'https://pic4.zhimg.com/80/v2-639c333ba8d5545ce44b9b5b60b83fe3_1440w.jpg?source=1940ef5c'
+        },
+        slantSec: {
+          src:
+            'https://pic2.zhimg.com/80/v2-ac44b1432b74cb9528e5a47eded0bcae_1440w.jpg?source=1940ef5c'
+        }
+      }
+    }
+  },
+  methods: {
+    zoomImg: function(src) {
+      this.isZoomInImg = !this.isZoomInImg
+      this.zoomInImgSrc = this.isZoomInImg ? src : ''
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -415,5 +443,22 @@ export default {}
   font-size: 1.2em;
   line-height: 1.5;
   font-weight: 600;
+}
+.zoom-in-img-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 101;
+  overflow: hidden;
+  padding: 10px;
+  background-color: rgba(18, 18, 18, 0.65);
+  transition: background-color 0.2s ease-in-out;
+}
+.zoom-in-img-wrapper img {
+  width: 100%;
+  overflow: scroll;
+  cursor: zoom-out;
 }
 </style>
