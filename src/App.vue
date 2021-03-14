@@ -12,7 +12,7 @@ export default {
     return {}
   },
   components: {
-    LinkHeader
+    'link-header': LinkHeader
   }
 }
 </script>

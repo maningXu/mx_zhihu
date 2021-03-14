@@ -75,9 +75,9 @@
                   </p>
                   <figure>
                     <img
-                      :src="imgConfig.slantFir.src"
+                      :src="imgConfig.slantFirstSrc"
                       width="1814"
-                      @click="zoomImg(imgConfig.slantFir.src)"
+                      @click="zoomImg(imgConfig.slantFirstSrc)"
                     />
                   </figure>
                   <p>
@@ -86,9 +86,9 @@
                   </p>
                   <figure>
                     <img
-                      :src="imgConfig.slantSec.src"
+                      :src="imgConfig.slantSecondSrc"
                       width="1920"
-                      @click="zoomImg(imgConfig.slantSec.src)"
+                      @click="zoomImg(imgConfig.slantSecondSrc)"
                     />
                   </figure>
                   <p>
@@ -97,8 +97,9 @@
                   <p>最后，如果你需要寻找最好的软件和工具，这需要利用这个网站搜索相关的关键词。</p>
                   <figure>
                     <img
-                      src="https://pic1.zhimg.com/80/v2-e33c64f6556f46db49a1dcd989b5cb78_1440w.jpg?source=1940ef5c"
+                      :src="imgConfig.slantThirdSrc"
                       width="1443"
+                      @click="zoomImg(imgConfig.slantThirdSrc)"
                     />
                   </figure>
                   <h2>2：Oeasy</h2>
@@ -120,8 +121,9 @@
                   <p>它支持视频教程全部免费下载，并且支持对应的素材和软件免费下载。</p>
                   <figure>
                     <img
-                      src="https://pic2.zhimg.com/80/v2-ce0d0c1f59127af0f4724b0b8f63467b_1440w.jpg?source=1940ef5c"
+                      :src="imgConfig.oeasyFirstSrc"
                       width="1920"
+                      @click="zoomImg(imgConfig.oeasyFirstSrc)"
                     />
                   </figure>
                   <h2>3：WikiHow</h2>
@@ -146,8 +148,9 @@
                   </p>
                   <figure>
                     <img
-                      src="https://pic1.zhimg.com/80/v2-26ed8f4384b46f88a5756e0c77ac7ec2_1440w.jpg?source=1940ef5c"
+                      :src="imgConfig.wikiHowFirstSrc"
                       width="1672"
+                      @click="zoomImg(imgConfig.wikiHowFirstSrc)"
                     />
                   </figure>
                   <h2>4：果汁排行榜</h2>
@@ -167,8 +170,9 @@
                   <p>你想了解每天的各个方面的排名，这个网站是非常实用的。</p>
                   <figure>
                     <img
-                      src="https://pic2.zhimg.com/80/v2-a44ad5085a46ca3f5859ce2bc7a4fc62_1440w.jpg?source=1940ef5c"
+                      :src="imgConfig.juiceFirstSrc"
                       width="1920"
+                      @click="zoomImg(imgConfig.juiceFirstSrc)"
                     />
                   </figure>
                   <h2>5：Product Hunt</h2>
@@ -193,8 +197,9 @@
                   </p>
                   <figure>
                     <img
-                      src="https://pic4.zhimg.com/80/v2-1a1995789bb46e41a28fb1d2f6050157_1440w.jpg?source=1940ef5c"
+                      :src="imgConfig.productFirstSrc"
                       width="1408"
+                      @click="zoomImg(imgConfig.productFirstSrc)"
                     />
                   </figure>
                   <p>
@@ -205,8 +210,9 @@
                   </p>
                   <figure>
                     <img
-                      src="https://pic1.zhimg.com/80/v2-21c71addef7d02091aebcc16c46b3d00_1440w.jpg?source=1940ef5c"
+                      :src="imgConfig.productSecondSrc"
                       width="1395"
+                      @click="zoomImg(imgConfig.productSecondSrc)"
                     />
                   </figure>
                   <h2>6：大学资源网</h2>
@@ -231,8 +237,9 @@
                   <p>最后，你还可以利用网站的搜索功能、课程排行功能，轻松找到你需要的质量课程。</p>
                   <figure>
                     <img
-                      src="https://pic2.zhimg.com/80/v2-636cfc0c697cf9769bbe25411617c350_1440w.jpg?source=1940ef5c"
+                      :src="imgConfig.colleageFirstSrc"
                       width="1212"
+                      @click="zoomImg(imgConfig.colleageFirstSrc)"
                     />
                   </figure>
                   <h2>7：科塔学术导航</h2>
@@ -253,8 +260,9 @@
                   </p>
                   <figure>
                     <img
-                      src="https://pic4.zhimg.com/80/v2-bac28387514ca15e527c9b099db2d185_1440w.jpg?source=1940ef5c"
+                      :src="imgConfig.scienceFirstSrc"
                       width="1920"
+                      @click="zoomImg(imgConfig.scienceFirstSrc)"
                     />
                   </figure>
                   <p>
@@ -262,8 +270,9 @@
                   </p>
                   <figure>
                     <img
-                      src="https://pic1.zhimg.com/80/v2-0d2850fe7962eda93610c5908dd56684_1440w.jpg?source=1940ef5c"
+                      :src="imgConfig.scienceSecondSrc"
                       width="1920"
+                      @click="zoomImg(imgConfig.scienceSecondSrc)"
                     />
                   </figure>
                 </span>
@@ -273,27 +282,43 @@
         </div>
       </div>
     </div>
-    <div v-show="isZoomInImg" class="zoom-in-img-wrapper">
-      <img :src="zoomInImgSrc" @click="zoomImg" />
-    </div>
+    <img-preview :isPreview="isZoomInImg" :src="zoomInImgSrc" @zoom-img="zoomImg" />
   </div>
 </template>
 
 <script>
+import ImgPreview from '../../../components/img-preview/index'
 export default {
+  components: {
+    'img-preview': ImgPreview
+  },
   data: function() {
     return {
       zoomInImgSrc: '',
       isZoomInImg: false, // the current img display largest size
       imgConfig: {
-        slantFir: {
-          src:
-            'https://pic4.zhimg.com/80/v2-639c333ba8d5545ce44b9b5b60b83fe3_1440w.jpg?source=1940ef5c'
-        },
-        slantSec: {
-          src:
-            'https://pic2.zhimg.com/80/v2-ac44b1432b74cb9528e5a47eded0bcae_1440w.jpg?source=1940ef5c'
-        }
+        slantFirstSrc:
+          'https://pic4.zhimg.com/80/v2-639c333ba8d5545ce44b9b5b60b83fe3_1440w.jpg?source=1940ef5c',
+        slantSecondSrc:
+          'https://pic2.zhimg.com/80/v2-ac44b1432b74cb9528e5a47eded0bcae_1440w.jpg?source=1940ef5c',
+        slantThirdSrc:
+          'https://pic1.zhimg.com/80/v2-e33c64f6556f46db49a1dcd989b5cb78_1440w.jpg?source=1940ef5c',
+        oeasyFirstSrc:
+          'https://pic2.zhimg.com/80/v2-ce0d0c1f59127af0f4724b0b8f63467b_1440w.jpg?source=1940ef5c',
+        wikiHowFirstSrc:
+          'https://pic1.zhimg.com/80/v2-26ed8f4384b46f88a5756e0c77ac7ec2_1440w.jpg?source=1940ef5c',
+        juiceFirstSrc:
+          'https://pic2.zhimg.com/80/v2-a44ad5085a46ca3f5859ce2bc7a4fc62_1440w.jpg?source=1940ef5c',
+        productFirstSrc:
+          'https://pic4.zhimg.com/80/v2-1a1995789bb46e41a28fb1d2f6050157_1440w.jpg?source=1940ef5c',
+        productSecondSrc:
+          'https://pic1.zhimg.com/80/v2-21c71addef7d02091aebcc16c46b3d00_1440w.jpg?source=1940ef5c',
+        colleageFirstSrc:
+          'https://pic2.zhimg.com/80/v2-636cfc0c697cf9769bbe25411617c350_1440w.jpg?source=1940ef5c',
+        scienceFirstSrc:
+          'https://pic4.zhimg.com/80/v2-bac28387514ca15e527c9b099db2d185_1440w.jpg?source=1940ef5c',
+        scienceSecondSrc:
+          'https://pic1.zhimg.com/80/v2-0d2850fe7962eda93610c5908dd56684_1440w.jpg?source=1940ef5c'
       }
     }
   },
@@ -443,22 +468,5 @@ export default {
   font-size: 1.2em;
   line-height: 1.5;
   font-weight: 600;
-}
-.zoom-in-img-wrapper {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 101;
-  overflow: hidden;
-  padding: 10px;
-  background-color: rgba(18, 18, 18, 0.65);
-  transition: background-color 0.2s ease-in-out;
-}
-.zoom-in-img-wrapper img {
-  width: 100%;
-  overflow: scroll;
-  cursor: zoom-out;
 }
 </style>
