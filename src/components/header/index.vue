@@ -1,12 +1,6 @@
 <template>
   <div>
-    <header
-      :class="[
-        'app-header',
-        { 'is-fixed': isHeaderFixed },
-        { 'is-hide': isHeaderHide },
-      ]"
-    >
+    <header :class="['app-header', { 'is-fixed': isHeaderFixed }, { 'is-hide': isHeaderHide }]">
       <div class="app-header-inner">
         <a @click="goAnswerPage">
           <svg viewBox="0 0 64 30" fill="#0066FF" width="64" height="30">
@@ -49,18 +43,9 @@
                       placeholder="搜索你感兴趣的内容…"
                       value=""
                     />
-                    <button
-                      aria-label="搜索"
-                      type="button"
-                      class="search-button"
-                    >
-                      <span style="display: inline-flex; paddingtop: 10px">
-                        <svg
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                          width="18"
-                          height="18"
-                        >
+                    <button aria-label="搜索" type="button" class="search-button">
+                      <span style="display: inline-flex; paddingtop: 10px; verticalAlign: middle;">
+                        <svg fill="currentColor" viewBox="0 0 24 24" width="18" height="18">
                           <path
                             d="M17.068 15.58a8.377 8.377 0 0 0 1.774-5.159 8.421 8.421 0 1 0-8.42 8.421 8.38 8.38 0 0 0 5.158-1.774l3.879 3.88c.957.573 2.131-.464 1.488-1.49l-3.879-3.878zm-6.647 1.157a6.323 6.323 0 0 1-6.316-6.316 6.323 6.323 0 0 1 6.316-6.316 6.323 6.323 0 0 1 6.316 6.316 6.323 6.323 0 0 1-6.316 6.316z"
                             fill-rule="evenodd"
@@ -77,11 +62,7 @@
         <div class="app-header-userInfo">
           <div>
             <div>
-              <button
-                type="button"
-                class="app-header-login button-blue"
-                @click="goLoginPage"
-              >
+              <button type="button" class="app-header-login button-blue" @click="goLoginPage">
                 登录
               </button>
               <button type="button" class="button-primary" @click="goLoginPage">
@@ -106,61 +87,61 @@
 
 <script>
 export default {
-  data: function () {
+  data: function() {
     return {
       list: [
-        { title: "首页", to: "/zhihu", href: "//www.zhihu.com/" },
-        { title: "会员", to: "/vip-web", href: "//www.zhihu.com/xen/vip-web" },
-        { title: "发现", to: "/explore", href: "//www.zhihu.com/explore" },
+        { title: '首页', to: '/zhihu', href: '//www.zhihu.com/' },
+        { title: '会员', to: '/vip-web', href: '//www.zhihu.com/xen/vip-web' },
+        { title: '发现', to: '/explore', href: '//www.zhihu.com/explore' },
         {
-          title: "等你来答",
-          to: "/question/waiting",
-          href: "//www.zhihu.com/question/waiting",
-        },
+          title: '等你来答',
+          to: '/question/waiting',
+          href: '//www.zhihu.com/question/waiting'
+        }
       ],
       isHeaderFixed: false,
-      isHeaderHide: false,
-    };
+      isHeaderHide: false
+    }
   },
   mounted() {
-    window.addEventListener("mousewheel", this.handleScroll, false);
+    window.addEventListener('mousewheel', this.handleScroll, false)
   },
   methods: {
-    goAnswerPage:function() {
+    goAnswerPage: function() {
       this.$router.push('/')
     },
-    goLoginPage: function () {
-      window.open("https://www.zhihu.com/");
+    goLoginPage: function() {
+      window.open('https://www.zhihu.com/')
     },
-    handleScroll: function (e) {
+    handleScroll: function(e) {
       // judge the direction of wheel
-      const direction = e.deltaY > 0 ? "down" : "up";
+      const direction = e.deltaY > 0 ? 'down' : 'up'
       // get the distance of the scroll
-      let scrollTop = window.pageYOffset;
+      let scrollTop = window.pageYOffset
       // document.documentElement.scrollTop ||
       // document.body.scrollTop;
-      if (direction === "down") {
-        let distance = scrollTop + 100;
+      if (direction === 'down') {
+        let distance = scrollTop + 100
         // fixed header
         if (distance > 0) {
-          this.isHeaderFixed = true;
+          this.isHeaderFixed = true
         }
         // hide header
         if (distance >= 200) {
-          this.isHeaderHide = true;
+          this.isHeaderHide = true
         }
       } else {
-        let distance = scrollTop - 100;
+        let distance = scrollTop - 100
         if (distance <= 0) {
-          this.isHeaderFixed = false;
+          this.isHeaderFixed = false
         }
         if (distance <= 100) {
-          this.isHeaderHide = false;
+          this.isHeaderHide = false
         }
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style scoped>
