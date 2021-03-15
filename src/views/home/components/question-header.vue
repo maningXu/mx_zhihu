@@ -4,18 +4,11 @@
       <div class="question-header-main">
         <div class="question-header-tags">
           <div class="question-header-topics">
-            <div
-              v-for="(item, index) in topicList"
-              :key="index"
-              class="question-topic"
-            >
+            <div v-for="(item, index) in topicList" :key="index" class="question-topic">
               <span class="tag-content"
                 ><a class="topic-link">
                   <div class="popover">
-                    <div
-                      @mouseover="showPopCard($event, item.key)"
-                      @mouseout="hidePopCard"
-                    >
+                    <div @mouseover="showPopCard($event, item.key)" @mouseout="hidePopCard">
                       {{ item.title }}
                     </div>
                   </div></a
@@ -31,16 +24,13 @@
           <div
             v-for="(item, index) in numberBoardList"
             :key="index"
-            :class="[
-              'number-board-item',
-              { 'number-board-divider': index === 1 },
-            ]"
+            :class="['number-board-item', { 'number-board-divider': index === 1 }]"
           >
             <div class="number-board-itemInner">
               <div class="number-board-itemName">{{ item.name }}</div>
-              <strong class="number-board-itemValue" :title="item.value">{{
-                item.value
-              }}</strong>
+              <strong class="number-board-itemValue" :title="item.value">
+                {{ toThousands(item.value) }}
+              </strong>
             </div>
           </div>
         </div>
@@ -206,41 +196,26 @@
           </div>
           <div class="hover-card-item">
             <div class="hover-card-number-board">
-              <a
-                target="_blank"
-                href="//www.zhihu.com/topic/19550581/questions"
-                type="button"
+              <a target="_blank" href="//www.zhihu.com/topic/19550581/questions" type="button"
                 ><div class="hover-card-number-board-itemInner">
                   <div class="hover-card-number-board-itemName">问题</div>
-                  <strong
-                    class="hover-card-number-board-itemValue"
-                    :title="topicCardInfo.question"
-                    >{{ topicCardInfo.question }}</strong
-                  >
+                  <strong class="hover-card-number-board-itemValue" :title="topicCardInfo.question">
+                    {{ toThousands(topicCardInfo.question) }}
+                  </strong>
                 </div></a
-              ><a
-                target="_blank"
-                href="//www.zhihu.com/topic/19550581/top-answers"
-                type="button"
+              ><a target="_blank" href="//www.zhihu.com/topic/19550581/top-answers" type="button"
                 ><div class="hover-card-number-board-itemInner">
                   <div class="hover-card-number-board-itemName">精华</div>
-                  <strong
-                    class="hover-card-number-board-itemValue"
-                    :title="topicCardInfo.essence"
-                    >{{ topicCardInfo.essence }}</strong
-                  >
+                  <strong class="hover-card-number-board-itemValue" :title="topicCardInfo.essence">
+                    {{ toThousands(topicCardInfo.essence) }}
+                  </strong>
                 </div></a
-              ><a
-                target="_blank"
-                href="//www.zhihu.com/topic/19550581/followers"
-                type="button"
+              ><a target="_blank" href="//www.zhihu.com/topic/19550581/followers" type="button"
                 ><div class="hover-card-number-board-itemInner">
                   <div class="hover-card-number-board-itemName">关注者</div>
-                  <strong
-                    class="hover-card-number-board-itemValue"
-                    :title="topicCardInfo.follow"
-                    >{{ topicCardInfo.follow }}</strong
-                  >
+                  <strong class="hover-card-number-board-itemValue" :title="topicCardInfo.follow">
+                    {{ toThousands(topicCardInfo.follow) }}
+                  </strong>
                 </div></a
               >
             </div>
@@ -255,115 +230,109 @@
 </template>
 
 <script>
-import _ from "lodash";
+import _ from 'lodash'
+import { toThousands } from '../../../utils/index.js'
 export default {
-  data: function () {
+  data: function() {
     return {
       topicList: [
-        { key: "study", title: "学习" },
-        { key: "education", title: "教育" },
-        { key: "research", title: "调查类问题" },
-        { key: "website", title: "网站" },
-        { key: "recommend", title: "网站推荐" },
+        { key: 'study', title: '学习' },
+        { key: 'education', title: '教育' },
+        { key: 'research', title: '调查类问题' },
+        { key: 'website', title: '网站' },
+        { key: 'recommend', title: '网站推荐' }
       ],
       topicCardInfo: {
         seen: false,
-        left: "255px",
+        left: '255px'
       },
       topicCardList: [
         {
-          key: "study",
-          title: "学习",
-          src:
-            "https://pic2.zhimg.com/80/v2-e811eedd93d21c5258733e5cc8182d2f_im.jpg",
-          srcset:
-            "https://pic2.zhimg.com/80/v2-e811eedd93d21c5258733e5cc8182d2f_xl.jpg 2x",
+          key: 'study',
+          title: '学习',
+          src: 'https://pic2.zhimg.com/80/v2-e811eedd93d21c5258733e5cc8182d2f_im.jpg',
+          srcset: 'https://pic2.zhimg.com/80/v2-e811eedd93d21c5258733e5cc8182d2f_xl.jpg 2x',
           content:
-            "学习，是指通过阅读、听讲、思考、研究、实践等途径获得知识或技能的过程。学习分为狭义与广义两种：狭义：通过阅读、听讲、研究、观察、理解、探索、实验、实践等手段获得知识或技能的过程，是一种使个体可以得到持续变化（知识和技能，方法与过程，情感与价值的改善和升华）的行为方式。例如通过学校教育获得知识的过程。广义：是人在生活过程中，通过获得经验而产生的行为或行为潜能的相对持久的行为方式。",
-          question: "380,997",
-          essence: "1,000",
-          follow: "716,995",
+            '学习，是指通过阅读、听讲、思考、研究、实践等途径获得知识或技能的过程。学习分为狭义与广义两种：狭义：通过阅读、听讲、研究、观察、理解、探索、实验、实践等手段获得知识或技能的过程，是一种使个体可以得到持续变化（知识和技能，方法与过程，情感与价值的改善和升华）的行为方式。例如通过学校教育获得知识的过程。广义：是人在生活过程中，通过获得经验而产生的行为或行为潜能的相对持久的行为方式。',
+          question: '380997',
+          essence: '1000',
+          follow: '716995'
         },
         {
-          key: "education",
-          title: "教育",
-          src:
-            "https://pic4.zhimg.com/80/v2-b3b78e598881c757f5fc98065d495d1d_im.jpg",
-          srcset:
-            "https://pic4.zhimg.com/80/v2-b3b78e598881c757f5fc98065d495d1d_xl.jpg 2x",
+          key: 'education',
+          title: '教育',
+          src: 'https://pic4.zhimg.com/80/v2-b3b78e598881c757f5fc98065d495d1d_im.jpg',
+          srcset: 'https://pic4.zhimg.com/80/v2-b3b78e598881c757f5fc98065d495d1d_xl.jpg 2x',
           content:
-            "教育，教育者有目的有计划有组织的对受教育者的心智发展进行教化培育，以现有的经验、学识推敲于人，为其解释各种现象、问题或行为，以增长能力经验，其根本是以人的一种相对成熟或理性的思维来认知对待，让事物得以接近其最根本的存在，人在其中，慢慢的对一种事物由感官触摸而到以认知理解的状态，并形成一种相对完善或理性的自我意识思维...但同时，人有着自我意识上的思维，又有着其自我的感官维度，所以，任何教育性的意识思维都未必能够绝对正确，而应该感性式的理解其思维的方向，只要他不偏差事物的内在；教育又是一种思维的传授，而人因为其自身的意识形态，又有着另样的思维走势，所以，教育当以最客观、最公正的意识思维教化于人，如此，人的思维才不至于过于偏差，并因思维的丰富而逐渐成熟、理性，并由此，走向最理性的自我和拥有最正确的思维认知，这就是教育的根本所在。教育也是一种教书育人的过程，可将一种最客观的理解教予他人，而后在自己的生活经验中得以自己所认为的价值观。教育，是一种提高人的综合素质的实践活动。",
-          question: "1,941,218",
-          essence: "999",
-          follow: "20,420,797",
+            '教育，教育者有目的有计划有组织的对受教育者的心智发展进行教化培育，以现有的经验、学识推敲于人，为其解释各种现象、问题或行为，以增长能力经验，其根本是以人的一种相对成熟或理性的思维来认知对待，让事物得以接近其最根本的存在，人在其中，慢慢的对一种事物由感官触摸而到以认知理解的状态，并形成一种相对完善或理性的自我意识思维...但同时，人有着自我意识上的思维，又有着其自我的感官维度，所以，任何教育性的意识思维都未必能够绝对正确，而应该感性式的理解其思维的方向，只要他不偏差事物的内在；教育又是一种思维的传授，而人因为其自身的意识形态，又有着另样的思维走势，所以，教育当以最客观、最公正的意识思维教化于人，如此，人的思维才不至于过于偏差，并因思维的丰富而逐渐成熟、理性，并由此，走向最理性的自我和拥有最正确的思维认知，这就是教育的根本所在。教育也是一种教书育人的过程，可将一种最客观的理解教予他人，而后在自己的生活经验中得以自己所认为的价值观。教育，是一种提高人的综合素质的实践活动。',
+          question: '1941218',
+          essence: '999',
+          follow: '20420797'
         },
         {
-          key: "research",
-          title: "调查类问题",
-          src:
-            "https://pic1.zhimg.com/80/v2-b3b78e598881c757f5fc98065d495d1d_im.jpg",
+          key: 'research',
+          title: '调查类问题',
+          src: 'https://pic1.zhimg.com/80/v2-b3b78e598881c757f5fc98065d495d1d_im.jpg',
           srcset:
-            "https://pic4.zhimg.com/50/5e9b29029e828de2113958111461ce53_xl.png?source=54b3c3a5 2x",
+            'https://pic4.zhimg.com/50/5e9b29029e828de2113958111461ce53_xl.png?source=54b3c3a5 2x',
           content:
-            "向大范围用户询问个人看法和体验的问题。 如果调查内容过于宽泛，容易引发开放式的回答，问题可能会被建议修改或关闭。 提问之前请参考知乎的提问规范有哪些？",
-          question: "164,955",
-          essence: "999",
-          follow: "192,066",
+            '向大范围用户询问个人看法和体验的问题。 如果调查内容过于宽泛，容易引发开放式的回答，问题可能会被建议修改或关闭。 提问之前请参考知乎的提问规范有哪些？',
+          question: '164955',
+          essence: '999',
+          follow: '192066'
         },
         {
-          key: "website",
-          title: "网站",
-          src:
-            "https://pic1.zhimg.com/80/v2-2d85aa10db02ddcd1b421a266663e95b_im.jpg",
-          srcset:
-            "https://pic1.zhimg.com/80/v2-2d85aa10db02ddcd1b421a266663e95b_xl.jpg 2x",
+          key: 'website',
+          title: '网站',
+          src: 'https://pic1.zhimg.com/80/v2-2d85aa10db02ddcd1b421a266663e95b_im.jpg',
+          srcset: 'https://pic1.zhimg.com/80/v2-2d85aa10db02ddcd1b421a266663e95b_xl.jpg 2x',
           content:
-            "网站(Website)是指在因特网上根据一定的规则，使用HTML（标准通用标记语言下的一个应用）等工具制作的用于展示特定内容相关网页的集合。简单地说，网站是一种沟通工具，人们可以通过网站来发布自己想要公开的资讯，或者利用网站来提供相关的网络服务。人们可以通过网页浏览器来访问网站，获取自己需要的资讯或者享受网络服务。",
-          question: "289,451",
-          essence: "999",
-          follow: "35,070",
+            '网站(Website)是指在因特网上根据一定的规则，使用HTML（标准通用标记语言下的一个应用）等工具制作的用于展示特定内容相关网页的集合。简单地说，网站是一种沟通工具，人们可以通过网站来发布自己想要公开的资讯，或者利用网站来提供相关的网络服务。人们可以通过网页浏览器来访问网站，获取自己需要的资讯或者享受网络服务。',
+          question: '289451',
+          essence: '999',
+          follow: '35070'
         },
         {
-          key: "recommend",
-          title: "网站推荐",
-          src: "https://pic1.zhimg.com/50/47be10149_im.jpg?source=54b3c3a5",
-          srcset:
-            "https://pic1.zhimg.com/50/47be10149_xl.jpg?source=54b3c3a5 2x",
-          content: "分享值得推荐的有趣、有益的网站。",
-          question: "2,926",
-          essence: "1,000",
-          follow: "23,488",
-        },
+          key: 'recommend',
+          title: '网站推荐',
+          src: 'https://pic1.zhimg.com/50/47be10149_im.jpg?source=54b3c3a5',
+          srcset: 'https://pic1.zhimg.com/50/47be10149_xl.jpg?source=54b3c3a5 2x',
+          content: '分享值得推荐的有趣、有益的网站。',
+          question: '2926',
+          essence: '1000',
+          follow: '23488'
+        }
       ],
       numberBoardList: [
         {
-          name: "关注者",
-          value: "184,213",
+          name: '关注者',
+          value: '184213'
         },
         {
-          name: "被浏览",
-          value: "20,594,652",
-        },
-      ],
-    };
+          name: '被浏览',
+          value: '20594652'
+        }
+      ]
+    }
   },
   methods: {
-    showPopCard: function (e, key) {
+    toThousands,
+    showPopCard: function(e, key) {
       this.topicCardInfo = {
         ...this.topicCardInfo,
-        ..._.find(this.topicCardList, (item) => item.key === key),
+        ..._.find(this.topicCardList, item => item.key === key),
         seen: true,
-        left: `${e.clientX - e.offsetX}px`,
-      };
+        left: `${e.clientX - e.offsetX}px`
+      }
     },
-    hidePopCard: function () {
+    hidePopCard: function() {
       this.topicCardInfo = {
         ...this.topicCardInfo,
-        seen: false,
-      };
-    },
-  },
-};
+        seen: false
+      }
+    }
+  }
+}
 </script>
 
 <style scoped>
