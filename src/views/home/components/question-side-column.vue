@@ -19,7 +19,7 @@
             </div>
           </a>
         </div>
-        <div class="card" key="ad-special">
+        <div v-if="showAdSpecial" class="card" key="ad-special">
           <div class="pc-card card">
             <a href="https://www.zhihu.com/special/19600305" target="_blank">
               <img
@@ -27,7 +27,7 @@
                 alt="广告"
               />
             </a>
-            <div class="pc-card-button-close">
+            <div class="pc-card-button-close" @click="showAdSpecial = false">
               <svg viewBox="0 0 12 12">
                 <path
                   fill-rule="evenodd"
@@ -94,7 +94,7 @@
             </a>
           </div>
         </div>
-        <div class="card" key="ad-market">
+        <div v-if="showAdMarket" class="card" key="ad-market">
           <div class="pc-card card">
             <a
               href="https://www.zhihu.com/xen/market/ecom-page/1349692661696274432?utm_source=web"
@@ -107,7 +107,7 @@
                 alt="广告"
               />
             </a>
-            <div class="pc-card-button-close">
+            <div class="pc-card-button-close" @click="showAdMarket = false">
               <svg viewBox="0 0 12 12">
                 <path
                   fill-rule="evenodd"
@@ -232,6 +232,8 @@
 export default {
   data: function() {
     return {
+      showAdSpecial: true,
+      showAdMarket: true,
       similarQuestionList: [
         {
           content:
