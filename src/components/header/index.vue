@@ -16,7 +16,12 @@
           </svg>
         </a>
         <ul class="app-header-tabs">
-          <li v-for="(item, index) in list" :key="index" class="app-header-tab">
+          <li
+            v-for="(item, index) in list"
+            :key="index"
+            :class="['app-header-tab', { active: currentLink === item.key }]"
+            @click="clickLink(item)"
+          >
             <router-link class="app-header-tabs-link" :to="item.to">
               {{ item.title }}
             </router-link>
@@ -89,56 +94,59 @@
 export default {
   data: function() {
     return {
+      currentLink: '',
       list: [
-        { title: '首页', to: '/zhihu', href: '//www.zhihu.com/' },
-        { title: '会员', to: '/vip-web', href: '//www.zhihu.com/xen/vip-web' },
-        { title: '发现', to: '/explore', href: '//www.zhihu.com/explore' },
+        { key: 'zhihu', title: '首页', to: '/zhihu', href: '//www.zhihu.com/' },
+        { key: 'vip', title: '会员', to: '/vip-web', href: '//www.zhihu.com/xen/vip-web' },
+        { key: 'explore', title: '发现', to: '/explore', href: '//www.zhihu.com/explore' },
         {
+          key: 'question',
           title: '等你来答',
           to: '/question/waiting',
           href: '//www.zhihu.com/question/waiting'
         }
       ],
       isHeaderFixed: false,
-      isHeaderHide: false
+      isHeaderHide: false,
+      y: 0
     }
   },
   mounted() {
-    window.addEventListener('mousewheel', this.handleScroll, false)
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
     goAnswerPage: function() {
+      this.currentLink = ''
       this.$router.push('/')
     },
     goLoginPage: function() {
       window.open('https://www.zhihu.com/')
     },
-    handleScroll: function(e) {
-      // judge the direction of wheel
-      const direction = e.deltaY > 0 ? 'down' : 'up'
-      // get the distance of the scroll
-      let scrollTop = window.pageYOffset
-      // document.documentElement.scrollTop ||
-      // document.body.scrollTop;
-      if (direction === 'down') {
-        let distance = scrollTop + 100
-        // fixed header
-        if (distance > 0) {
-          this.isHeaderFixed = true
-        }
-        // hide header
-        if (distance >= 200) {
-          this.isHeaderHide = true
-        }
+    handleScroll: function() {
+      // fixed header if page scroll;
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop > 0) {
+        this.isHeaderFixed = true
       } else {
-        let distance = scrollTop - 100
-        if (distance <= 0) {
-          this.isHeaderFixed = false
-        }
-        if (distance <= 100) {
-          this.isHeaderHide = false
-        }
+        this.isHeaderFixed = false
       }
+      var direction = this.y - scrollTop < 0 ? 'down' : 'up'
+      // direction of scroll is up
+      if (direction === 'up') {
+        this.isHeaderHide = false
+      }
+      // direction of scroll is down
+      if (scrollTop > 120 && direction === 'down') {
+        this.isHeaderHide = true
+      }
+      // record last scroll top
+      this.y = scrollTop
+    },
+    clickLink: function(item) {
+      this.currentLink = item.key
     }
   }
 }
@@ -182,6 +190,10 @@ export default {
   display: inline-block;
   padding-left: 15px;
   padding-right: 15px;
+}
+.app-header-tab.active a {
+  color: #222;
+  font-weight: 600;
 }
 .app-header-tabs-link {
   font-size: 15px;
@@ -272,6 +284,10 @@ export default {
   height: 100%;
   transition: transform 0.3s;
   z-index: -1;
+  opacity: 0;
+}
+.page-header.is-shown {
+  opacity: 1;
 }
 .page-header:not(.is-shown) {
   transform: translateY(100%);
