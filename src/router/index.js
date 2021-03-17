@@ -1,43 +1,43 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/home/index.vue";
-import Zhihu from "../views/zhihu.vue";
-import Vip from "../views/vip.vue";
-import Explore from "../views/explore.vue";
-import Question from "../views/question.vue";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/home/index.vue'
+import Zhihu from '../views/zhihu.vue'
+import Vip from '../views/vip.vue'
+import Explore from '../views/explore/index.vue'
+import Question from '../views/question.vue'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
-    component: Home,
+    path: '/',
+    name: 'Home',
+    component: Home
   },
   {
-    path: "/zhihu",
-    name: "Zhihu",
-    component: Zhihu,
+    path: '/zhihu',
+    name: 'Zhihu',
+    component: Zhihu
   },
   {
-    path: "/vip-web",
-    name: "Vip",
-    component: Vip,
+    path: '/vip-web',
+    name: 'Vip',
+    component: Vip
   },
   {
-    path: "/explore",
-    name: "Explore",
-    component: Explore,
+    path: '/explore',
+    name: 'Explore',
+    component: Explore
   },
   {
-    path: "/question/waiting",
-    name: "Question",
-    component: Question,
-  },
-];
+    path: '/question/waiting',
+    name: 'Question',
+    component: Question
+  }
+]
 
 const router = new VueRouter({
-  routes,
-});
+  routes
+})
 
-export default router;
+export default router
