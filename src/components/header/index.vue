@@ -111,16 +111,25 @@ export default {
       y: 0
     }
   },
+  watch: {
+    currentLink: function() {
+      window.sessionStorage.setItem('currentLink', this.currentLink)
+    }
+  },
   mounted() {
     window.addEventListener('scroll', this.handleScroll)
+    const sessionCurrentLink = window.sessionStorage.getItem('currentLink')
+    if (sessionCurrentLink) {
+      this.currentLink = sessionCurrentLink
+    }
   },
   destroyed() {
     window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
     goAnswerPage: function() {
-      this.currentLink = ''
       this.$router.push('/')
+      this.currentLink = ''
     },
     goLoginPage: function() {
       window.open('https://www.zhihu.com/')
