@@ -37,4 +37,7 @@ export default {
   width: 1000px;
   padding: 0 16px;
 }
+.explore-homepage > div + div {
+  margin-top: 32px;
+}
 </style>
