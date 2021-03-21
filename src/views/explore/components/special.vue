@@ -1,6 +1,6 @@
 <template>
   <div class="special">
-    <div class="special-header">
+    <div class="content-section-header">
       <svg fill="currentColor" viewBox="0 0 24 24" width="36" height="36">
         <path
           d="M7.667 3.667h11.466a1.2 1.2 0 0 1 1.2 1.2v13.066a2.4 2.4 0 0 1-2.4 2.4H6.467V4.867a1.2 1.2 0 0 1 1.2-1.2zM4.2 9.619h1.689v10.714H5.4a2.4 2.4 0 0 1-2.4-2.4V10.82a1.2 1.2 0 0 1 1.2-1.2zm5.178-2.38a.6.6 0 0 0-.6.6v.585a.6.6 0 0 0 .6.6h8.044a.6.6 0 0 0 .6-.6v-.586a.6.6 0 0 0-.6-.6H9.378zm0 3.57a.6.6 0 0 0-.6.6v.586a.6.6 0 0 0 .6.6h8.044a.6.6 0 0 0 .6-.6v-.585a.6.6 0 0 0-.6-.6H9.378zm0 3.572a.6.6 0 0 0-.6.6v.586a.6.6 0 0 0 .6.6h4.578a.6.6 0 0 0 .6-.6v-.586a.6.6 0 0 0-.6-.6H9.378z"
@@ -9,7 +9,7 @@
       </svg>
       <span>最新专题</span>
     </div>
-    <div class="special-body">
+    <div class="content-section-body">
       <div class="special-body-specials">
         <div class="specials-login">
           <div class="specials-login-img">
@@ -50,7 +50,7 @@
         </div>
       </div>
     </div>
-    <div class="special-body-moreButton">
+    <div class="content-section-moreButton">
       <a>
         查看更多专题
         <svg fill="currentColor" viewBox="0 0 24 24" width="25" height="25">
@@ -162,23 +162,7 @@ export default {
 </script>
 
 <style scoped>
-.special-header {
-  display: flex;
-  height: 36px;
-  -webkit-box-align: center;
-  align-items: center;
-}
-.special-header svg {
-  color: #06f;
-}
-.special-header span {
-  margin-left: 12px;
-  font-size: 25px;
-  font-weight: 600;
-}
-.special-body {
-  padding: 24px 0 20px;
-}
+@import url('../common.css');
 .special-body-specials {
   display: flex;
   -webkit-box-pack: justify;
@@ -326,24 +310,5 @@ export default {
 }
 .specials-card-contentItem + .specials-card-contentItem {
   margin-top: 12px;
-}
-.special-body-moreButton {
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-}
-.special-body-moreButton a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 48px;
-  padding: 0 14px 0 24px;
-  -webkit-box-pack: center;
-  -webkit-box-align: center;
-  background-color: #fff;
-  border-radius: 25px;
-  color: #8590a6;
-  font-weight: 600;
-  cursor: pointer;
 }
 </style>
