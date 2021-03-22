@@ -11,35 +11,32 @@
     </div>
     <div class="content-section-body">
       <div class="round-tables">
-        <div class="round-tables-card">
-          <div class="round-tables-card-headerContainer" style="background-color: rgb(52, 60, 74);">
+        <div v-for="(card, index) in roundTableCards" :key="index" class="round-tables-card">
+          <div
+            class="round-tables-card-headerContainer"
+            :style="{ 'background-color': card.backgroundColor }"
+          >
             <div class="round-tables-card-headerBackgrounds">
               <div
-                style='background-image: url("https://pic2.zhimg.com/50/v2-81b94b2a911fed13495b3be8d4e0f97d_hd.jpg?source=b1f6dc53"); background-position: center center;'
+                :style="{
+                  backgroundImage: card.backgroundImage,
+                  backgroundPosition: 'center center'
+                }"
               ></div>
-              <div
-                style="background: linear-gradient(to right, rgb(52, 60, 74) 0%, rgba(52, 60, 74, 0) 100%);"
-              ></div>
-              <div
-                style="background: linear-gradient(to right, rgba(52, 60, 74, 0.5) 0%, rgba(52, 60, 74, 0) 100%);"
-              ></div>
+              <div :style="{ background: card.backgroundFirLinear }"></div>
+              <div :style="{ background: card.backgroundSecLinear }"></div>
             </div>
             <div class="round-tables-card-header">
-              <a class="round-tables-card-title">韩语学习分享站</a>
-              <a class="round-tables-card-intro"
-                >关于韩语单词记忆，听力提升，教材推荐，来这里找答案吧</a
-              >
+              <a class="round-tables-card-title">{{ card.title }}</a>
+              <a class="round-tables-card-intro">{{ card.intro }}</a>
               <div class="round-tables-card-info">
                 <div class="round-tables-card-guests">
-                  <img
-                    src="https://pic2.zhimg.com/50/v2-cddc70b6c9142f18db2e307accd952f8_720w.jpg?source=b1f6dc53"
-                  /><img
-                    src="https://pic4.zhimg.com/50/v2-5d0226c9ddc3971e36d17d3bb5afad48_720w.jpg?source=b1f6dc53"
-                  /><img
-                    src="https://pic4.zhimg.com/50/v2-b3c2fdc560d4db3ebd28441a7cc249d1_720w.jpg?source=b1f6dc53"
-                  /><span>3 位嘉宾参与</span>
+                  <img v-for="(img, index) in card.guestsImgs" :key="index" :src="img.src" />
+                  <span>{{ card.guests }} 位嘉宾参与</span>
                 </div>
-                <div class="round-tables-card-count"><span>178 人关注</span></div>
+                <div class="round-tables-card-count">
+                  <span>{{ card.count }} 人关注</span>
+                </div>
               </div>
             </div>
             <div class="round-tables-card-followButton">
@@ -49,35 +46,17 @@
             </div>
           </div>
           <div class="round-tables-card-questionList">
-            <div class="round-tables-card-questionItem">
+            <div
+              v-for="(question, index) in card.questionList"
+              :key="index"
+              class="round-tables-card-questionItem"
+            >
               <a class="round-tables-card-questionTitle">
-                求求求！！有人在木槿韩语学习过吗？木槿韩语怎么样？
+                {{ question.title }}
               </a>
               <div class="round-tables-card-questionCounts">
-                <span>4 个回答</span>
+                <span>{{ question.count }} 个回答</span>
               </div>
-            </div>
-            <div class="round-tables-card-questionItem">
-              <a
-                class="round-tables-card-questionTitle"
-                href="/question/445204501"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-za-detail-view-id="5800"
-                >有没有在木槿学习的，木槿韩语怎么样呀？</a
-              >
-              <div class="round-tables-card-questionCounts"><span>6 个回答</span></div>
-            </div>
-            <div class="round-tables-card-questionItem">
-              <a
-                class="round-tables-card-questionTitle"
-                href="/question/36571009"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-za-detail-view-id="5800"
-                >学韩语真的有那么不好么，学了有什么用?</a
-              >
-              <div class="round-tables-card-questionCounts"><span>129 个回答</span></div>
             </div>
           </div>
         </div>
@@ -98,7 +77,181 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data: function() {
+    return {
+      roundTableCards: [
+        {
+          backgroundColor: 'rgb(52, 60, 74)',
+          backgroundImage:
+            'url("https://pic2.zhimg.com/50/v2-81b94b2a911fed13495b3be8d4e0f97d_hd.jpg?source=b1f6dc53")',
+          backgroundFirLinear:
+            'linear-gradient(to right, rgb(52, 60, 74) 0%, rgba(52, 60, 74, 0) 100%)',
+          backgroundSecLinear:
+            'linear-gradient(to right, rgba(52, 60, 74, 0.5) 0%, rgba(52, 60, 74, 0) 100%)',
+          title: '韩语学习分享站',
+          intro: '关于韩语单词记忆，听力提升，教材推荐，来这里找答案吧',
+          guestsImgs: [
+            {
+              src:
+                'https://pic2.zhimg.com/50/v2-cddc70b6c9142f18db2e307accd952f8_720w.jpg?source=b1f6dc53'
+            },
+            {
+              src:
+                'https://pic4.zhimg.com/50/v2-5d0226c9ddc3971e36d17d3bb5afad48_720w.jpg?source=b1f6dc53'
+            },
+            {
+              src:
+                'https://pic4.zhimg.com/50/v2-b3c2fdc560d4db3ebd28441a7cc249d1_720w.jpg?source=b1f6dc53'
+            }
+          ],
+          guests: 3,
+          count: 178,
+          questionList: [
+            {
+              title: '求求求！！有人在木槿韩语学习过吗？木槿韩语怎么样？',
+              count: 4
+            },
+            {
+              title: '有没有在木槿学习的，木槿韩语怎么样呀？',
+              count: 6
+            },
+            {
+              title: '学韩语真的有那么不好么，学了有什么用?',
+              count: 129
+            }
+          ]
+        },
+        {
+          backgroundColor: 'rgb(179, 164, 66)',
+          backgroundImage:
+            'url("https://pic4.zhimg.com/50/v2-319f3fd512f7f9318ccae3efd6a17d15_hd.jpg?source=b1f6dc53")',
+          backgroundFirLinear:
+            'linear-gradient(to right, rgb(179, 164, 66) 0%, rgba(179, 164, 66, 0) 100%)',
+          backgroundSecLinear:
+            'linear-gradient(to right, rgba(179, 164, 66, 0.5) 0%, rgba(179, 164, 66, 0) 100%)',
+          title: '知食节｜春日食春',
+          intro:
+            '又是一年春来到，你们心中的应季美食都有哪些？老话讲「不鲜不食，不时不食」关注本期圆桌，让我们一同探讨春天的时令健康美食法则。',
+          guestsImgs: [
+            {
+              src:
+                'https://pic4.zhimg.com/50/v2-f8d47257194e05ad3a540722939c7034_720w.jpg?source=b1f6dc53'
+            },
+            {
+              src:
+                'https://pic4.zhimg.com/50/v2-8a2b1813acbeaaca78a554eabd44b9eb_720w.jpg?source=b1f6dc53'
+            },
+            {
+              src:
+                'https://pic4.zhimg.com/50/v2-2d5611cb5c09266f048e9967a94798e8_720w.jpg?source=b1f6dc53'
+            }
+          ],
+          guests: 4,
+          count: 465,
+          questionList: [
+            {
+              title: '春天为什么要吃春卷？有哪些历史渊源？',
+              count: 4
+            },
+            {
+              title: '有哪些时令美味，适合在春天「尝第一口鲜」？',
+              count: 534
+            },
+            {
+              title: '春天吃荠菜有哪些好处？',
+              count: 7
+            }
+          ]
+        },
+        {
+          backgroundColor: 'rgb(61, 90, 179)',
+          backgroundImage:
+            'url("https://pic4.zhimg.com/50/v2-b6726c83cc06785feab6ce147ea3ce30_hd.jpg?source=b1f6dc53")',
+          backgroundFirLinear:
+            'linear-gradient(to right, rgb(61, 90, 179) 0%, rgba(61, 90, 179, 0) 100%)',
+          backgroundSecLinear:
+            'linear-gradient(to right, rgba(61, 90, 179, 0.5) 0%, rgba(61, 90, 179, 0) 100%)',
+          title: '科技创新×知识产权',
+          intro:
+            '「创新是引领发展的第一动力，保护知识产权就是保护创新」。 ​本圆桌在知识产权保护工作的时代内涵和战略意义基础上对知识产权领域的有关探索和实践进行广泛讨论，解读主流语境下的创新变局。',
+          guestsImgs: [
+            {
+              src:
+                'https://pic4.zhimg.com/50/v2-4ec5df6e797083c9b3a519bfb0347fd4_720w.jpg?source=b1f6dc53'
+            },
+            {
+              src:
+                'https://pic1.zhimg.com/50/v2-57ca88a61e2a681bce04ccce97d206b1_720w.jpg?source=b1f6dc53'
+            },
+            {
+              src:
+                'https://pic2.zhimg.com/50/v2-ec63b203a103e3854d69848738888621_720w.jpg?source=b1f6dc53'
+            }
+          ],
+          guests: 7,
+          count: 288,
+          questionList: [
+            {
+              title: '如何发挥知识产权在科创企业的“杠杆”作用？',
+              count: 2
+            },
+            {
+              title: '核心技术“卡脖子”，企业创新如何突围？',
+              count: 7
+            },
+            {
+              title: '如何让企业老板重视知识产权？',
+              count: 2
+            }
+          ]
+        },
+        {
+          backgroundColor: 'rgb(61, 90, 179)',
+          backgroundImage:
+            'url("https://pic2.zhimg.com/50/v2-70571dd7fd6908102b930ddb554e558b_hd.jpg?source=b1f6dc53")',
+          backgroundFirLinear:
+            'linear-gradient(to right, rgb(61, 90, 179) 0%, rgba(61, 90, 179, 0) 100%)',
+          backgroundSecLinear:
+            'linear-gradient(to right, rgba(61, 90, 179, 0.5) 0%, rgba(61, 90, 179, 0) 100%)',
+          title: '哲学考研要关注哪些问题？',
+          intro:
+            '哲学考研如何择校？哲学考研如何备考？哲学考研如何把握重难点？哲学考研复试如何准备？哲学考研如何联系导师？哲学考研被调剂了怎么办……与哲学考研的所有问题，都来探讨下吧！',
+          guestsImgs: [
+            {
+              src:
+                'https://pic4.zhimg.com/50/v2-1569448dd7b71b23ea72bc8e76e856f9_720w.jpg?source=b1f6dc53'
+            },
+            {
+              src:
+                'https://pic2.zhimg.com/50/v2-60c0b233f41fe77253600b1c1c3c0281_720w.jpg?source=b1f6dc53'
+            },
+            {
+              src:
+                'https://pic1.zhimg.com/50/v2-212ef7fe9a0729010dde176cc107cb45_720w.jpg?source=b1f6dc53'
+            }
+          ],
+          guests: 6,
+          count: 83,
+          questionList: [
+            {
+              title: '学哲学能做什么工作呢？',
+              count: 112
+            },
+            {
+              title: '中国哲学道家哲学考研有什么好的建议？',
+              count: 7
+            },
+            {
+              title: '考研哲学的困惑?',
+              count: 8
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
 </script>
 
 <style scoped>
