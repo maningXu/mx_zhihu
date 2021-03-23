@@ -1,5 +1,5 @@
 <template>
-  <div class="collection">
+  <div class="column">
     <div class="content-section-header">
       <svg class="Zi Zi--EditCircle" fill="currentColor" viewBox="0 0 24 24" width="36" height="36">
         <path
