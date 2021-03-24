@@ -11,10 +11,10 @@
     </div>
     <div class="content-section-body">
       <div class="collections">
-        <div class="collection-card">
+        <div v-for="(card, index) in cards" :key="index" class="collection-card">
           <div class="collection-card-header">
             <div class="collection-card-info">
-              <a class="collection-card-title">有趣感动/惊为天人</a>
+              <a class="collection-card-title">{{ card.title }}</a>
               <div class="collection-card-relatedMembers">
                 <div class="collection-card-creator">
                   <span class="collection-card-creatorAvatar">
@@ -29,7 +29,9 @@
                   <a class="collection-card-creatorName">John Hexa</a>
                   <span class="collection-card-creatorSuffix">创建</span>
                 </div>
-                <div class="collection-card-followers">2,176 人关注</div>
+                <div class="collection-card-followers">
+                  {{ toThousands(card.followers) }} 人关注
+                </div>
               </div>
             </div>
             <div class="collection-card-followButton">
@@ -37,42 +39,28 @@
             </div>
           </div>
           <div class="collection-card-contentList">
-            <div class="collection-card-contentItem">
-              <a class="collection-card-contentTitle">被有钱人喜欢上是一种什么感觉？</a>
+            <div
+              v-for="(contentItem, index) in card.contentList"
+              :key="index"
+              class="collection-card-contentItem"
+            >
+              <a class="collection-card-contentTitle">{{ contentItem.title }}</a>
               <div class="collection-card-contentExcerpt">
-                匿名用户：禁止转载！！！！！谢谢配合！！！ 什么感觉呢，就像打翻了调味瓶，五味杂陈。
-                故事有点长。慢慢说起吧。
-                很小的时候，母亲就花了三千块钱把我的户口挂在了城里的朋友家里，从此我每天往返二十几里路，在城里上起了幼儿园。小学的时候，母亲又负债花了六万块，在城里买了一套62平的二手房。房子离学校不算近，我走路到学校需要40分钟。在同学都穿着阿迪耐克的时候，我穿着十几元的运动鞋，十几元的T恤，甚至我全身上下加起来还没…
+                {{ contentItem.excerpt }}
               </div>
               <div class="collection-card-contentTags">
                 <span class="collection-card-contentTypeTag">回答</span>
-                <span class="collection-card-contentCountTag">28,967 赞同</span>
-                <span class="collection-card-contentCountTag">2,203 评论</span>
-              </div>
-            </div>
-            <div class="collection-card-contentItem">
-              <a
-                class="collection-card-contentTitle"
-                href="https://www.zhihu.com/answer/879928645"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-za-detail-view-id="5807"
-                >删掉男友100%完成度的塞尔达，并且在他玩儿生化危机的时候吓唬他，这个有很严重吗？</a
-              >
-              <div class="collection-card-contentExcerpt">
-                雨宫莲：之前我没开PSN会员的时候女友看我老是打游戏不陪她逛街就把电闸掰了。ps4虽然烧了不过也就是几千小时的存档，无所谓了。
-                然后她生日那天，我想给她画一副画，没找到画笔，用了她几十根口红终于完成了画作并亲手送给了她，她感动的热泪盈眶。
-                现在她已经是我前女友了。 大仇得报。
-              </div>
-              <div class="collection-card-contentTags">
-                <span class="collection-card-contentTypeTag">回答</span
-                ><span class="collection-card-contentCountTag">12,799 赞同</span
-                ><span class="collection-card-contentCountTag">432 评论</span>
+                <span class="collection-card-contentCountTag"
+                  >{{ toThousands(contentItem.approveCount) }} 赞同</span
+                >
+                <span class="collection-card-contentCountTag"
+                  >{{ toThousands(contentItem.commentCount) }} 评论</span
+                >
               </div>
             </div>
           </div>
           <a class="collection-card-collectedContentCount">
-            已收藏 8,534 条内容
+            已收藏 {{ toThousands(card.collectionCount) }} 条内容
             <svg
               class="Zi Zi--ArrowRight"
               fill="currentColor"
@@ -103,7 +91,102 @@
 </template>
 
 <script>
-export default {}
+import { toThousands } from '../../../utils/index.js'
+export default {
+  data: function() {
+    return {
+      cards: [
+        {
+          title: '有趣感动/惊为天人',
+          followers: 2176,
+          contentList: [
+            {
+              title: '被有钱人喜欢上是一种什么感觉？',
+              excerpt:
+                '匿名用户：禁止转载！！！！！谢谢配合！！！ 什么感觉呢，就像打翻了调味瓶，五味杂陈。 故事有点长。慢慢说起吧。 很小的时候，母亲就花了三千块钱把我的户口挂在了城里的朋友家里，从此我每天往返二十几里路，在城里上起了幼儿园。小学的时候，母亲又负债花了六万块，在城里买了一套62平的二手房。房子离学校不算近，我走路到学校需要40分钟。在同学都穿着阿迪耐克的时候，我穿着十几元的运动鞋，十几元的T恤，甚至我全身上下加起来还没…',
+              approveCount: 28967,
+              commentCount: 2203
+            },
+            {
+              title:
+                '删掉男友100%完成度的塞尔达，并且在他玩儿生化危机的时候吓唬他，这个有很严重吗？',
+              excerpt:
+                '雨宫莲：之前我没开PSN会员的时候女友看我老是打游戏不陪她逛街就把电闸掰了。ps4虽然烧了不过也就是几千小时的存档，无所谓了。 然后她生日那天，我想给她画一副画，没找到画笔，用了她几十根口红终于完成了画作并亲手送给了她，她感动的热泪盈眶。 现在她已经是我前女友了。 大仇得报。',
+              approveCount: 12799,
+              commentCount: 432
+            }
+          ],
+          collectionCount: 8534
+        },
+        {
+          title: '★★★★★',
+          followers: 683,
+          contentList: [
+            {
+              title: '《你好，李焕英》真的适合带爸妈看吗？会不会只是自己以为的适合？',
+              excerpt:
+                '小武和花生：不适合 围脖上看到的，真实无比。 [图片] 这个电影，根本就不是合家欢电影，大过年的，想和父母一去看电影，就看点不用动脑的。没啥内涵，不会引起争端的，乐乐呵呵就完事了。 千万不要想着上升高度去看亲情电影。哭成一团就和上学的时候搞的尴尬感恩活动有异曲同工之妙。 而且现在网上刷的热热闹闹的，什么珍惜父母，感恩父母。两代人互相理解。过个几天，大家各忙各的，这一场轰轰烈烈的感恩母亲的活动，就结束了。 父母该催婚的还是…',
+              approveCount: 4258,
+              commentCount: 329
+            },
+            {
+              title: '为什么现在很多农村女孩认为一个男孩很轻易的就能拿出20几万的彩礼？',
+              excerpt:
+                '李明阳：20万彩礼也许不合理，但是20万对一个身体健康的普通人，不难。 之前一个送餐小哥，告诉我他的理想。 攒一笔钱，回家翻新房子，买电器，结婚。 北京送餐一个月将近一万收入，没五险一金，税交不交不知道，到手就是这些。 住差点儿的，反正一天没几个小时在家，吃他一般不操心，也是外卖，最便宜的。 （有时候餐撒漏了，客户不要了，他就又买一份新的给客户，自己吃撒漏了的那份） 一个月攒6000是可以的，一年七万。 干三年，就是…',
+              approveCount: 17,
+              commentCount: 13
+            }
+          ],
+          collectionCount: 19725
+        },
+        {
+          title: '吐槽的我很爽啊',
+          followers: 6807,
+          contentList: [
+            {
+              title: '是否可以恢复一夫一妻多妾制？',
+              excerpt:
+                '白色的瑞隐：我只能说你还是太年轻 我奶奶的父亲就是看上家里一个长工的未婚妻，娶了做了姨太太。对了，还把那个长工腿打断了丢出去了。 好了，假设一下，一夫一妻多妾制。 易烊千玺吴彦祖杨洋就不提了。 你带着你如花似玉的未婚妻去公司，你那个激动啊，下周你们就要领证了。在公司大门口，你那位开着法拉利，带着劳力士，财大气粗的老板摇下车窗，看了一眼你未婚妻，意味深长地笑了笑。 然后你老板在停好车后，在公司门口随便找了个借口把…',
+              approveCount: 6295,
+              commentCount: 744
+            },
+            {
+              title: '敲诈公职人员的女辅警父亲发声',
+              excerpt: '全民：undefined',
+              approveCount: 1776,
+              commentCount: 820
+            }
+          ],
+          collectionCount: 13864
+        },
+        {
+          title: '社科答集',
+          followers: 2199,
+          contentList: [
+            {
+              title: '为什么中国人很少宣传夏商周是奴隶制？',
+              excerpt:
+                'John Hexa：关于“奴隶制国家”有几个问题你们需要考虑一下： 1）在使用木棍和石器耕种的时代，一个人的产出，在扣除维持这个人做重体力劳动的最基本口粮之后，还有多少比例的口粮余量？我们总不能假设奴隶主阶层的口粮份额与奴隶一样吧？假设一名奴隶主阶层成员的口粮是奴隶的三倍。 那么需要多少名奴隶，来养活一名奴隶主？ 这个问题换算过来，就是“一个奴隶，在青铜时代，能生产出几倍于他自己份额的口粮”？能达到四倍吗？ 要达到4倍，…',
+              approveCount: 41,
+              commentCount: 10
+            },
+            {
+              title: '黑格尔说汉语不宜思辨的理由是什么？',
+              excerpt:
+                'John Hexa：是否适合思辨和语言本身是没关系的，主要看该语种语境中既有的“思辨资产”有多少。 也就是既被清晰定义（或至少有所界定）而又广为大众所知（或至少广为学界所知）的常用概念有多少。 思辨的效率靠的是这些资产的高效运用，而不是语言本身如何。只要一个国家的学术界和学术报道业在这个问题上做了足够多有效的投资，就能做到这一点。即使是斯瓦希里语、泰米尔语，只要做了这样的投入，也一样会变得利于思辨。 只不过并非每个语…',
+              approveCount: 134,
+              commentCount: 32
+            }
+          ],
+          collectionCount: 370
+        }
+      ]
+    }
+  },
+  methods: {
+    toThousands
+  }
+}
 </script>
 
 <style scoped>
