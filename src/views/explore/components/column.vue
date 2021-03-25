@@ -11,16 +11,16 @@
     </div>
     <div class="content-section-body">
       <div class="columns">
-        <div class="columnCard">
+        <div v-for="(item, index) in columnCards" :key="index" class="columnCard">
           <a class="columnCard-avatar">
-            <img src="https://pic1.zhimg.com/v2-4003180359c22768877b60193c064c79_xl.jpg" />
+            <img :src="item.imgSrc" />
           </a>
-          <a class="columnCard-title">简七理财</a>
+          <a class="columnCard-title">{{ item.title }}</a>
           <div class="columnCard-count">
-            <span>9,865 关注</span>
-            <span>542 文章</span>
+            <span>{{ toThousands(item.followers) }} 关注</span>
+            <span>{{ toThousands(item.articles) }} 文章</span>
           </div>
-          <div class="columnCard-intro">理财更简单 人生更自由</div>
+          <div class="columnCard-intro">{{ item.intro }}</div>
           <button class="columnCard-entryButton">进入专栏</button>
         </div>
       </div>
@@ -40,7 +40,46 @@
 </template>
 
 <script>
-export default {}
+import { toThousands } from '../../../utils/index'
+export default {
+  data: function() {
+    return {
+      columnCards: [
+        {
+          imgSrc: 'https://pic2.zhimg.com/v2-609b850564f24f03d7d1bc159d11455a_xl.jpg',
+          title: 'Alter聊科技',
+          followers: 699,
+          articles: 591,
+          intro: '通俗易懂，不是砖家！'
+        },
+        {
+          imgSrc: 'https://pic3.zhimg.com/v2-a876aff70658d265e18128edf5b73ce4_xl.jpg',
+          title: '高斋CATTI和MTI翻译专栏',
+          followers: 2336,
+          articles: 468,
+          intro: '高斋翻译，专注做更细致透彻英语翻译讲解'
+        },
+        {
+          imgSrc: 'https://pic3.zhimg.com/v2-2fae2561cbb15474d9cc4ab1a35ac252_xl.jpg',
+          title: '抽屉电影',
+          followers: 3510,
+          articles: 1757,
+          intro: '胡说八道'
+        },
+        {
+          imgSrc: 'https://pic2.zhimg.com/v2-a3908890ffba70a605d37fd64bee2a70_xl.jpg',
+          title: '徐德文科学频道',
+          followers: 17781,
+          articles: 1691,
+          intro: '微信公众号：xudewen028'
+        }
+      ]
+    }
+  },
+  methods: {
+    toThousands
+  }
+}
 </script>
 
 <style scoped>
