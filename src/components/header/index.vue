@@ -79,9 +79,24 @@
       </div>
       <div>
         <div :class="['page-header', { 'is-shown': isHeaderHide }]">
-          <div class="question-header-content">
+          <div v-if="this.currentLink === ''" class="question-header-content">
             <div class="question-header-main">
               <h1 class="question-header-title">有哪些值得每天一看的网站？</h1>
+            </div>
+            <div class="question-header-side">
+              <div class="question-header-button-group">
+                <button type="button" class="button-primary">
+                  关注问题
+                </button>
+                <button type="button" class="button-blue">
+                  <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                    <path
+                      d="M4.076 16.966a4.19 4.19 0 0 1 1.05-1.76l8.568-8.569a.524.524 0 0 1 .741 0l2.928 2.927a.524.524 0 0 1 0 .74l-8.568 8.57c-.49.49-1.096.852-1.761 1.051l-3.528 1.058a.394.394 0 0 1-.49-.488l1.06-3.53zM20.558 4.83c.59.59.59 1.546 0 2.136l-1.693 1.692a.503.503 0 0 1-.712 0l-2.812-2.812a.504.504 0 0 1 0-.712l1.693-1.693a1.51 1.51 0 0 1 2.135 0l1.389 1.389z"
+                    ></path>
+                  </svg>
+                  写回答
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -186,6 +201,10 @@ export default {
   height: 52px;
   padding: 0 16px;
   margin: 0 auto;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
 }
 .app-header-tabs {
   display: flex;
@@ -324,5 +343,21 @@ export default {
   color: #121212;
   font-size: 22px;
   font-weight: 600;
+}
+.question-header-side {
+  width: 296px;
+  padding-right: 20px;
+  text-align: right;
+}
+.question-header-button-group {
+  display: inline-block;
+  margin: 0 -8px;
+}
+.question-header-button-group button {
+  margin: 0 8px;
+}
+.question-header-button-group button svg {
+  vertical-align: text-bottom;
+  margin-right: 4px;
 }
 </style>
