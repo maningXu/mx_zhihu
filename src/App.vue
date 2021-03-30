@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <link-header></link-header>
-    <router-view></router-view>
+    <link-header />
+    <router-view />
   </div>
 </template>
 
 <script>
-import LinkHeader from './components/header/index'
+import LinkHeader from './components/header/index.vue'
 export default {
   data: function() {
     return {}

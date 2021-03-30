@@ -287,7 +287,7 @@
 </template>
 
 <script>
-import ImgPreview from '../../../components/img-preview/index'
+import ImgPreview from '../../../components/img-preview/index.vue'
 export default {
   components: {
     'img-preview': ImgPreview

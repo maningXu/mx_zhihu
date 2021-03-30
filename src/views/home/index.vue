@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <question-header></question-header>
+    <question-header />
     <div class="question-main">
-      <question-main-column></question-main-column>
-      <question-side-column></question-side-column>
+      <question-main-column />
+      <question-side-column />
     </div>
   </div>
 </template>
