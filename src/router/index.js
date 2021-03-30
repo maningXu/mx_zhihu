@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/home/index.vue'
-import Zhihu from '../views/zhihu.vue'
+import Zhihu from '../views/zhihu/index.vue'
+import Home from '../views/home.vue'
 import Vip from '../views/vip/index.vue'
 import Explore from '../views/explore/index.vue'
 import Question from '../views/question.vue'
@@ -11,13 +11,13 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/zhihu',
     name: 'Zhihu',
     component: Zhihu
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home
   },
   {
     path: '/vip-web',

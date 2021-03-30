@@ -88,7 +88,7 @@ export default {
     return {
       currentLink: '',
       list: [
-        { key: 'zhihu', title: '首页', to: '/zhihu', href: '//www.zhihu.com/' },
+        { key: 'zhihu', title: '首页', to: '/home', href: '//www.zhihu.com/' },
         { key: 'vip', title: '会员', to: '/vip-web', href: '//www.zhihu.com/xen/vip-web' },
         { key: 'explore', title: '发现', to: '/explore', href: '//www.zhihu.com/explore' },
         {
