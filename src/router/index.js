@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/home/index.vue'
 import Zhihu from '../views/zhihu.vue'
-import Vip from '../views/vip.vue'
+import Vip from '../views/vip/index.vue'
 import Explore from '../views/explore/index.vue'
 import Question from '../views/question.vue'
 
