@@ -1,5 +1,5 @@
 <template>
-  <div class='vip'>
+  <div class="vip">
     <menu-bar />
     <app-content />
   </div>
@@ -23,4 +23,9 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.vip {
+  min-width: 1230px;
+  background-color: #fff;
+}
+</style>
