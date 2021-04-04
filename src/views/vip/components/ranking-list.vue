@@ -24,6 +24,96 @@
       </div>
     </div>
     <div class="rankingList-dividerLine"></div>
+    <div class="rankingList-topOneItem">
+      <div class="rankingList-background">
+        <div class="rankingList-top-title">都市男女：我必须忘记你</div>
+        <div class="rankingList-description">
+          细数现代生活中纠葛的情感，那些爱恨情仇令人消瘦。
+        </div>
+        <div class="rankingList-author">
+          <div
+            class="rankingList-avatar"
+            src="https://pic4.zhimg.com/v2-1e593c02fd65ecd4c81c1381a322b621_l.jpg"
+            theme="light"
+          >
+            <div></div>
+            <img src="https://pic1.zhimg.com/50/v2-1e593c02fd65ecd4c81c1381a322b621.webp" />
+          </div>
+          <div>作者: 张薇</div>
+        </div>
+      </div>
+      <div class="rankingList-artwork">
+        <div class="artwork-image-wrapper">
+          <img src="https://pic1.zhimg.com/v2-65fba93d3bb840b223addf89052a506d.png" />
+          <img src="https://pic1.zhimg.com/50/v2-c5e153a0d8a13254b0bd520f13882eff.webp" />
+        </div>
+        <div class="cellLabel-type">
+          <span class="VerticalMiddle-root-g9oA5">盐选专栏</span>
+        </div>
+        <img src="https://pic4.zhimg.com/v2-64888e9758753adb09660cf4e32fa3fc.png" class="vip-tag" />
+      </div>
+      <div class="rankingList-indexLogo">01</div>
+    </div>
+    <div class="rankingList-sliderButton">
+      <div class="rankingList-button left disable">
+        <svg viewBox="0 0 48 48" height="16" width="16" fill="currentColor">
+          <path
+            d="M19.608 11.291a1.04 1.04 0 0 0-1.428-.02l-1.88 1.782a.968.968 0 0 0-.02 1.388l9.49 9.556-9.49 9.555a.973.973 0 0 0 .02 1.388l1.88 1.782a1.036 1.036 0 0 0 1.428-.02L31.703 24.7a.991.991 0 0 0 0-1.404L19.608 11.29z"
+            fill-rule="evenodd"
+          ></path>
+        </svg>
+      </div>
+      <div class="rankingList-button">
+        <svg viewBox="0 0 48 48" height="16" width="16" fill="currentColor">
+          <path
+            d="M19.608 11.291a1.04 1.04 0 0 0-1.428-.02l-1.88 1.782a.968.968 0 0 0-.02 1.388l9.49 9.556-9.49 9.555a.973.973 0 0 0 .02 1.388l1.88 1.782a1.036 1.036 0 0 0 1.428-.02L31.703 24.7a.991.991 0 0 0 0-1.404L19.608 11.29z"
+            fill-rule="evenodd"
+          ></path>
+        </svg>
+      </div>
+    </div>
+    <div class="rankingList-itemList">
+      <div class="rankingList-slider" style="left: 0px">
+        <div class="rankingList-item">
+          <div class="rankingList-itemBackground"></div>
+          <div class="rankingList-itemIndex">02</div>
+          <div class="rankingList-itemArtwork">
+            <div class="image-wrapper">
+              <img src="https://pic1.zhimg.com/v2-65fba93d3bb840b223addf89052a506d.png" />
+              <img
+                class="Image-image-iKEPH"
+                src="https://pic1.zhimg.com/50/v2-b8515fa67d0419674d755538edc7d1ce.webp"
+                srcset="
+                  https://pic1.zhimg.com/50/v2-b8515fa67d0419674d755538edc7d1ce.webp 2x,
+                  https://pic1.zhimg.com/50/v2-b8515fa67d0419674d755538edc7d1ce.webp 3x
+                "
+              />
+            </div>
+            <div class="cellLabel-type">
+              <span>盐选专栏</span>
+            </div>
+            <img
+              src="https://pic4.zhimg.com/v2-64888e9758753adb09660cf4e32fa3fc.png"
+              class="vip-tag"
+            />
+          </div>
+          <div class="rankingList-itemTitle">妻子的复仇</div>
+          <div class="rankingList-itemDescription">
+            面对丈夫出轨，有的女人选择隐忍，有的女人选择离开，有的女人则选择了复仇……凤凰男，妈宝男，扶弟魔男……
+            被侮辱被损害的妻子们快意恩仇，让渣男绿茶受到应有的惩罚。
+            渣男绿茶玩心机？那就比他/她更有心机！渣男绿茶耍手腕？那就比他/她更有手腕！
+            不能伸张的正义，就由自己来执行；老天爷无眼，那就取而代之！
+          </div>
+          <div class="rankingList-itemAuthor">
+            <div class="rankingList-avator">
+              <div></div>
+              <img src="https://pic1.zhimg.com/50/v2-17087672aa445ee15c138118aa708c4a.webp" />
+            </div>
+            <div>作者: 烟雨平生</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -110,5 +200,346 @@ export default {
   width: 100%;
   height: 1px;
   background-color: #ebebeb;
+}
+.rankingList-topOneItem {
+  position: relative;
+  height: 215px;
+}
+.rankingList-background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-left: 192px;
+  width: 494px;
+  height: 143px;
+  background-color: #dbaf72;
+  color: #fff;
+}
+.rankingList-top-title {
+  margin-top: 18px;
+  width: 405px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  line-height: 21px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+}
+.rankingList-description {
+  margin-top: 11px;
+  width: 405px;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.4px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+}
+.rankingList-author {
+  position: absolute;
+  bottom: 18px;
+  left: 192px;
+  display: -webkit-box;
+  display: flex;
+  width: 405px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.rankingList-author div {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+}
+.rankingList-avatar {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  position: relative;
+  flex-shrink: 0;
+}
+.rankingList-avatar img {
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.rankingList-artwork {
+  overflow: hidden;
+  border-radius: 0;
+  position: absolute;
+  top: 0;
+  left: 25px;
+  width: 142px;
+  height: 190px;
+  border: 5px solid #fff;
+  cursor: pointer;
+}
+.artwork-image-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+}
+.artwork-image-wrapper > img:first-child {
+  width: 100%;
+  height: 100%;
+}
+.artwork-image-wrapper > img:last-child {
+  border-radius: inherit;
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.cellLabel-type {
+  position: absolute;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 8px;
+  line-height: 30px;
+  transform: scale(0.5);
+  -webkit-transform-origin: 100% 100%;
+  white-space: nowrap;
+  color: #121212;
+  background-color: hsla(0, 0%, 100%, 0.8);
+  right: 0;
+  bottom: 0;
+  box-shadow: unset;
+  font-weight: 500;
+  border-radius: 12px 0 0 0;
+  height: 48px;
+  font-size: 26px;
+}
+.vip-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 21px;
+}
+@font-face {
+  font-family: ZHVipFont;
+  src: url('../../../assets/ZHVipFont.7F3wnHjJ.otf');
+}
+.rankingList-indexLogo {
+  position: absolute;
+  top: 24px;
+  left: 673px;
+  box-sizing: border-box;
+  width: 66px;
+  height: 66px;
+  border: 2px solid #754e19;
+  text-align: center;
+  line-height: 62px;
+  font-size: 30px;
+  font-weight: 400;
+  color: #754e19;
+  font-family: ZHVipFont;
+}
+.rankingList-sliderButton {
+  position: absolute;
+  top: 261px;
+  right: 20px;
+}
+.rankingList-button {
+  float: left;
+  margin-left: 4px;
+  width: 18px;
+  height: 18px;
+  background-color: #754e19;
+  cursor: pointer;
+}
+.rankingList-button.disable {
+  opacity: 0.3;
+  cursor: default;
+}
+.rankingList-button:hover {
+  opacity: 1;
+  background-color: #ce994f;
+}
+.rankingList-button.disable:hover {
+  opacity: 0.3;
+  background-color: #754e19;
+}
+.rankingList-button.left {
+  transform: rotateY(180deg);
+}
+.rankingList-button svg {
+  display: block;
+  margin: 1px 0 0 1px;
+  color: #f8e2c4;
+}
+.rankingList-itemList {
+  position: relative;
+  margin-top: 26px;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+.rankingList-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: flex;
+  -webkit-transition: left 0.5s;
+  transition: left 0.5s;
+}
+.rankingList-item {
+  position: relative;
+  margin-right: 45px;
+  width: 163px;
+}
+.rankingList-itemBackground {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  width: 98px;
+  height: 131px;
+  background-color: #daae72;
+}
+.rankingList-itemIndex {
+  position: absolute;
+  top: 14px;
+  right: 0;
+  font-family: ZHVipFont;
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 400;
+  color: #754e19;
+}
+.rankingList-itemArtwork {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  width: 98px;
+  height: 131px;
+  border: 3px solid #fff;
+  cursor: pointer;
+}
+
+.rankingList-itemArtwork > .image-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+.rankingList-itemArtwork > .image-wrapper img:first-child {
+  width: 100%;
+  height: 100%;
+}
+.rankingList-itemArtwork > .image-wrapper img:last-child {
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.rankingList-itemTitle {
+  margin-top: 23px;
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  color: #121212;
+  text-decoration: none;
+  cursor: pointer;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+}
+.rankingList-itemDescription {
+  margin-top: 3px;
+  width: 100%;
+  font-size: 12px;
+  line-height: 17px;
+  letter-spacing: 0.4px;
+  color: #999;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+}
+.rankingList-itemAuthor {
+  margin-top: 12px;
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  height: 18px;
+  line-height: 18px;
+  font-size: 11px;
+  color: #121212;
+}
+.rankingList-itemAuthor div {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+}
+.rankingList-avator {
+  margin-right: 7px;
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  position: relative;
+  flex-shrink: 0;
+}
+.rankingList-avator img {
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 </style>
