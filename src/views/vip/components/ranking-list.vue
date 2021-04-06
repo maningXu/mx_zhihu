@@ -26,22 +26,16 @@
     <div class="rankingList-dividerLine"></div>
     <div class="rankingList-topOneItem">
       <div class="rankingList-background">
-        <div class="rankingList-top-title">都市男女：我必须忘记你</div>
+        <div class="rankingList-top-title">{{ topOneItem.title }}</div>
         <div class="rankingList-description">
-          细数现代生活中纠葛的情感，那些爱恨情仇令人消瘦。
+          {{ topOneItem.description }}
         </div>
         <div class="rankingList-author">
-          <div
-            class="rankingList-avatar image-wrapper"
-            src="https://pic4.zhimg.com/v2-1e593c02fd65ecd4c81c1381a322b621_l.jpg"
-          >
+          <div class="rankingList-avatar image-wrapper">
             <div></div>
-            <img
-              class="image-avatar "
-              src="https://pic1.zhimg.com/50/v2-1e593c02fd65ecd4c81c1381a322b621.webp"
-            />
+            <img class="image-avatar" :src="topOneItem.authorSrc" />
           </div>
-          <div>作者: 张薇</div>
+          <div>作者: {{ topOneItem.author }}</div>
         </div>
       </div>
       <div class="rankingList-artwork">
@@ -50,10 +44,7 @@
             class="avatar-artwork"
             src="https://pic1.zhimg.com/v2-65fba93d3bb840b223addf89052a506d.png"
           />
-          <img
-            class="image-avatar"
-            src="https://pic1.zhimg.com/50/v2-c5e153a0d8a13254b0bd520f13882eff.webp"
-          />
+          <img class="image-avatar" :src="topOneItem.artWorkSrc" />
         </div>
         <div class="cellLabel-type big-label">
           <span>盐选专栏</span>
@@ -82,19 +73,16 @@
     </div>
     <div class="rankingList-itemList">
       <div class="rankingList-slider" style="left: 0px">
-        <div class="rankingList-item">
+        <div v-for="(item, index) in itemList" :key="index" class="rankingList-item">
           <div class="rankingList-itemBackground"></div>
-          <div class="rankingList-itemIndex">02</div>
+          <div class="rankingList-itemIndex">{{ item.indexLogo }}</div>
           <div class="rankingList-itemArtwork">
             <div class="image-wrapper avatar-artwork">
               <img
                 class="avatar-artwork"
                 src="https://pic1.zhimg.com/v2-65fba93d3bb840b223addf89052a506d.png"
               />
-              <img
-                class="image-avatar"
-                src="https://pic1.zhimg.com/50/v2-b8515fa67d0419674d755538edc7d1ce.webp"
-              />
+              <img class="image-avatar" :src="item.artWorkSrc" />
             </div>
             <div class="cellLabel-type">
               <span>盐选专栏</span>
@@ -104,22 +92,16 @@
               src="https://pic4.zhimg.com/v2-64888e9758753adb09660cf4e32fa3fc.png"
             />
           </div>
-          <div class="rankingList-itemTitle">妻子的复仇</div>
+          <div class="rankingList-itemTitle">{{ item.title }}</div>
           <div class="rankingList-itemDescription">
-            面对丈夫出轨，有的女人选择隐忍，有的女人选择离开，有的女人则选择了复仇……凤凰男，妈宝男，扶弟魔男……
-            被侮辱被损害的妻子们快意恩仇，让渣男绿茶受到应有的惩罚。
-            渣男绿茶玩心机？那就比他/她更有心机！渣男绿茶耍手腕？那就比他/她更有手腕！
-            不能伸张的正义，就由自己来执行；老天爷无眼，那就取而代之！
+            {{ item.description }}
           </div>
           <div class="rankingList-itemAuthor">
             <div class="rankingList-avator image-wrapper">
               <div></div>
-              <img
-                class="image-avatar"
-                src="https://pic1.zhimg.com/50/v2-17087672aa445ee15c138118aa708c4a.webp"
-              />
+              <img class="image-avatar" :src="item.authorSrc" />
             </div>
-            <div>作者: 烟雨平生</div>
+            <div>作者: {{ item.author }}</div>
           </div>
         </div>
       </div>
@@ -128,6 +110,8 @@
 </template>
 
 <script>
+import _ from 'lodash'
+import hotList from '../ranking-list/hot.js'
 export default {
   data: function() {
     return {
@@ -138,6 +122,30 @@ export default {
         { key: 'live', name: 'Live 榜' }
       ],
       currentRankingListTab: 'hot'
+    }
+  },
+  computed: {
+    rankingList: function() {
+      if (this.currentRankingListTab === 'hot') {
+        return hotList
+      } else if (this.currentRankingListTab === 'skill') {
+        return []
+      } else if (this.currentRankingListTab === 'story') {
+        return []
+      }
+      return []
+    },
+    topOneItem: function() {
+      return this.rankingList[0]
+    },
+    itemList: function() {
+      const originalList = _.slice(this.rankingList, 1)
+      return _.map(originalList, (item, index) => {
+        return {
+          ...item,
+          indexLogo: `0${index + 2}`
+        }
+      })
     }
   }
 }
