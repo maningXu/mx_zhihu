@@ -77,7 +77,7 @@ const hotList = [
       '被霸道总裁爱上是种怎样的体验？在这个集合了穿越、重生、沙雕、甜宠、虐恋等元素的现代反套路小说里，有让霸总洗内裤的，有穿越就跟霸总离婚的，也有想跟霸总谈场走心恋爱却被囚禁的。花花世界，风景大好，霸道总裁千万种，日子过得甜又爽才是王道。',
     author: '伞阿花伞大王',
     authorSrc: 'https://pic1.zhimg.com/50/v2-085a865fbb73f249dd5edba6aafa9478.webp',
-    artWorkSrc: 'https://pic1.zhimg.com/v2-65fba93d3bb840b223addf89052a506d.png'
+    artWorkSrc: 'https://pic1.zhimg.com/50/v2-232a2521f5a9363ac220db9fc6e07468.webp'
   }
 ]
 

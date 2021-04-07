@@ -8,7 +8,7 @@
           v-for="(item, index) in rankingListTabs"
           :key="index"
           :class="['rankingList-tabItem', { active: currentRankingListTab === item.key }]"
-          @mouseenter="currentRankingListTab = item.key"
+          @mouseenter="enterRankingListTab(item)"
         >
           {{ item.name }}
         </div>
@@ -54,7 +54,10 @@
       <div class="rankingList-indexLogo">01</div>
     </div>
     <div class="rankingList-sliderButton">
-      <div class="rankingList-button left disable">
+      <div
+        :class="['rankingList-button', 'left', { disable: leftSliderBtnDisabled }]"
+        @click="clickLeftSliderBtn"
+      >
         <svg viewBox="0 0 48 48" height="16" width="16" fill="currentColor">
           <path
             d="M19.608 11.291a1.04 1.04 0 0 0-1.428-.02l-1.88 1.782a.968.968 0 0 0-.02 1.388l9.49 9.556-9.49 9.555a.973.973 0 0 0 .02 1.388l1.88 1.782a1.036 1.036 0 0 0 1.428-.02L31.703 24.7a.991.991 0 0 0 0-1.404L19.608 11.29z"
@@ -62,7 +65,10 @@
           ></path>
         </svg>
       </div>
-      <div class="rankingList-button">
+      <div
+        :class="['rankingList-button', { disable: rightSliderBtnDisabled }]"
+        @click="clickRightSliderBtn"
+      >
         <svg viewBox="0 0 48 48" height="16" width="16" fill="currentColor">
           <path
             d="M19.608 11.291a1.04 1.04 0 0 0-1.428-.02l-1.88 1.782a.968.968 0 0 0-.02 1.388l9.49 9.556-9.49 9.555a.973.973 0 0 0 .02 1.388l1.88 1.782a1.036 1.036 0 0 0 1.428-.02L31.703 24.7a.991.991 0 0 0 0-1.404L19.608 11.29z"
@@ -72,7 +78,7 @@
       </div>
     </div>
     <div class="rankingList-itemList">
-      <div class="rankingList-slider" style="left: 0px">
+      <div class="rankingList-slider" :style="{ left: `${leftDistance}px` }">
         <div v-for="(item, index) in itemList" :key="index" class="rankingList-item">
           <div class="rankingList-itemBackground"></div>
           <div class="rankingList-itemIndex">{{ item.indexLogo }}</div>
@@ -122,7 +128,10 @@ export default {
         { key: 'story', name: '故事榜' },
         { key: 'live', name: 'Live 榜' }
       ],
-      currentRankingListTab: 'hot'
+      currentRankingListTab: 'hot',
+      leftDistance: 0,
+      leftSliderBtnDisabled: true,
+      rightSliderBtnDisabled: false
     }
   },
   computed: {
@@ -142,11 +151,38 @@ export default {
     itemList: function() {
       const originalList = _.slice(this.rankingList, 1)
       return _.map(originalList, (item, index) => {
+        const indexLogoVal = index + 2
+        const indexLogo = indexLogoVal < 10 ? `0${indexLogoVal}` : indexLogoVal
         return {
           ...item,
-          indexLogo: `0${index + 2}`
+          indexLogo
         }
       })
+    }
+  },
+  methods: {
+    enterRankingListTab: function(item) {
+      this.currentRankingListTab = item.key
+      this.leftDistance = 0
+      this.leftSliderBtnDisabled = true
+      this.rightSliderBtnDisabled = false
+    },
+    clickLeftSliderBtn: function() {
+      if (this.leftSliderBtnDisabled) return
+      this.rightSliderBtnDisabled = false
+      this.leftDistance += 832
+      if (this.leftDistance === 0) {
+        this.leftSliderBtnDisabled = true
+      }
+    },
+    clickRightSliderBtn: function() {
+      if (this.rightSliderBtnDisabled) return
+      this.leftSliderBtnDisabled = false
+      this.leftDistance -= 832
+      const count = this.leftDistance / -208 + 4
+      if (count > this.itemList.length) {
+        this.rightSliderBtnDisabled = true
+      }
     }
   }
 }
