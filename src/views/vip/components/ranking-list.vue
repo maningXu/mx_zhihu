@@ -112,6 +112,7 @@
 <script>
 import _ from 'lodash'
 import hotList from '../ranking-list/hot.js'
+import skillList from '../ranking-list/skill.js'
 export default {
   data: function() {
     return {
@@ -129,7 +130,7 @@ export default {
       if (this.currentRankingListTab === 'hot') {
         return hotList
       } else if (this.currentRankingListTab === 'skill') {
-        return []
+        return skillList
       } else if (this.currentRankingListTab === 'story') {
         return []
       }
