@@ -119,6 +119,8 @@
 import _ from 'lodash'
 import hotList from '../ranking-list/hot.js'
 import skillList from '../ranking-list/skill.js'
+import storyList from '../ranking-list/story.js'
+import liveList from '../ranking-list/live.js'
 export default {
   data: function() {
     return {
@@ -141,9 +143,9 @@ export default {
       } else if (this.currentRankingListTab === 'skill') {
         return skillList
       } else if (this.currentRankingListTab === 'story') {
-        return []
+        return storyList
       }
-      return []
+      return liveList
     },
     topOneItem: function() {
       return this.rankingList[0]
