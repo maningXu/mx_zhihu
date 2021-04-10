@@ -11,7 +11,7 @@
 
 <script>
 import RankingList from './ranking-list.vue'
-import SuperStarList from './super-start-list.vue'
+import SuperStarList from './super-star-list.vue'
 import RecommendFeed from './recommend-feed.vue'
 export default {
   components: {
