@@ -2,7 +2,12 @@
   <div class="superStarList-root">
     <div class="superStarList-title">大咖驾到</div>
     <div class="superStarList-starList">
-      <div v-for="(item, index) in starList" :key="index" class="superStarList-starCell active">
+      <div
+        v-for="(item, index) in starList"
+        :key="index"
+        :class="['superStarList-starCell', { active: currentStar === item.key }]"
+        @mouseenter="enterStar(item)"
+      >
         <div class="image-imageWrapper superStarList-avatar">
           <div></div>
           <img class="image-image" :src="item.avatar" />
@@ -11,23 +16,20 @@
       </div>
     </div>
     <div class="superStarList-dividerLine">
-      <div class="superStarList-pointer" style="left: 143px;"></div>
+      <div class="superStarList-pointer" :style="{ left: leftDistance }"></div>
     </div>
     <div class="superStarList-skuList">
-      <div class="superStarList-skuCell">
+      <div v-for="(item, index) in skuList" :key="index" class="superStarList-skuCell">
         <div class="skuAvatar-root">
           <div class="image-imageWrapper skuAvatar-artwork">
             <img
               class="skuAvatar-artwork"
               src="https://pic1.zhimg.com/v2-65fba93d3bb840b223addf89052a506d.png"
             />
-            <img
-              class="image-image"
-              src="https://pic1.zhimg.com/50/v2-8fcf9a5558afda5a5768d8cb146a3807.webp"
-            />
+            <img class="image-image" :src="item.img" />
           </div>
           <div class="cellLabel-type">
-            <span class="verticalMiddle-root">盐选专栏</span>
+            <span class="verticalMiddle-root">{{ item.cellLabel }}</span>
           </div>
           <img
             src="https://pic4.zhimg.com/v2-64888e9758753adb09660cf4e32fa3fc.png"
@@ -35,7 +37,7 @@
           />
         </div>
         <div class="superStarList-skuTitle">
-          长夜难明：《沉默的真相》原著小说，廖凡、白宇、谭卓主演
+          {{ item.skuTitle }}
         </div>
       </div>
     </div>
@@ -43,6 +45,12 @@
 </template>
 
 <script>
+import _ from 'lodash'
+import zjcList from '../vip-list/zjc.js'
+import ftList from '../vip-list/ft.js'
+import lcxList from '../vip-list/lcx.js'
+import zddList from '../vip-list/zdd.js'
+import fyqmList from '../vip-list/fyqm.js'
 export default {
   data: function() {
     return {
@@ -72,7 +80,31 @@ export default {
           avatar: 'https://pic1.zhimg.com/50/v2-7bde6a1e673af00835fe65efc9ad1e41.webp',
           name: '法医秦明'
         }
-      ]
+      ],
+      currentStar: 'zjc'
+    }
+  },
+  computed: {
+    leftDistance: function() {
+      const index = _.findIndex(this.starList, { key: this.currentStar })
+      return `${35 + index * 108}px`
+    },
+    skuList: function() {
+      if (this.currentStar === 'zjc') {
+        return zjcList
+      } else if (this.currentStar === 'ft') {
+        return ftList
+      } else if (this.currentStar === 'lcx') {
+        return lcxList
+      } else if (this.currentStar === 'zdd') {
+        return zddList
+      }
+      return fyqmList
+    }
+  },
+  methods: {
+    enterStar: function(item) {
+      this.currentStar = item.key
     }
   }
 }
@@ -201,6 +233,9 @@ export default {
   float: left;
   margin-right: 25px;
   width: 142px;
+}
+.superStarList-skuCell:last-child {
+  margin-right: 0;
 }
 .skuAvatar-root {
   position: relative;
