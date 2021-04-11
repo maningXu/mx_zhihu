@@ -287,6 +287,8 @@ export default {
 
 <style scoped>
 .question-side-column {
+  position: sticky;
+  top: 62px;
   width: 296px;
 }
 .card {
