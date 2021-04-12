@@ -1,19 +1,70 @@
 <template>
-  <div class="vip-banner">
-    <div class="vip-banner-item active">
+  <div class="vip-banner" :style="{ background: bgColor[currentBanner] }">
+    <div
+      v-for="(item, index) in bannerList"
+      :key="index"
+      :class="['vip-banner-item', { active: currentBanner === item.key }]"
+    >
       <div class="image-imageWrapper">
         <div style="width:1920;padding-top:26.041666666666668%"></div>
-        <img
-          class="image-image"
-          src="https://pic1.zhimg.com/50/v2-d741f4406f843b0eb882e6e0ab534541.webp"
-        />
+        <img class="image-image" :src="item.src" />
       </div>
+    </div>
+    <div class="vip-banner-bannerBtnList">
+      <div
+        v-for="(item, index) in bannerList"
+        :key="index"
+        :class="['bannerBtnList-item', { active: currentBanner === item.key }]"
+        @click="changeBanner(item)"
+      ></div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import _ from 'lodash'
+export default {
+  data: function() {
+    return {
+      bannerList: [
+        {
+          key: 'ipChance',
+          src: 'https://pic1.zhimg.com/50/v2-d741f4406f843b0eb882e6e0ab534541.webp'
+        },
+        {
+          key: 'offSingleStatus',
+          src: 'https://pic1.zhimg.com/50/v2-67bc430aba502333e5551f08b1424c39.webp'
+        },
+        { key: 'test', src: 'https://pic1.zhimg.com/50/v2-8b3e1f348586130c78e710b7457b7c5b.webp' }
+      ],
+      currentBanner: 'test',
+      bgColor: {
+        ipChance: 'rgb(76, 46, 18)',
+        offSingleStatus: 'rgb(253, 118, 115)',
+        test: 'rgb(94, 88, 176)'
+      }
+    }
+  },
+  mounted: function() {
+    this.bannerInterval = setInterval(() => {
+      const index = _.findIndex(this.bannerList, { key: this.currentBanner })
+      const isLastBanner = index + 1 === this.bannerList.length
+      if (isLastBanner) {
+        this.currentBanner = _.get(this.bannerList, '[0].key')
+      } else {
+        this.currentBanner = _.get(this.bannerList, `[${index + 1}].key`)
+      }
+    }, 5000)
+  },
+  destroyed: function() {
+    clearInterval(this.bannerInterval)
+  },
+  methods: {
+    changeBanner: function(item) {
+      this.currentBanner = item.key
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -59,5 +110,25 @@ export default {}
   object-fit: cover;
   text-indent: -9999px;
   border-radius: inherit;
+}
+.vip-banner-bannerBtnList {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.bannerBtnList-item {
+  float: left;
+  margin: 0 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.bannerBtnList-item.active {
+  background-color: #fff;
 }
 </style>
