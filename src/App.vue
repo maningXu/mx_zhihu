@@ -1,18 +1,31 @@
 <template>
   <div id="app">
-    <link-header />
-    <router-view />
+    <div v-if="!isLogin">
+      <login />
+    </div>
+    <div v-else>
+      <link-header />
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
+import Login from './views/login/index.vue'
 import LinkHeader from './components/header/index.vue'
 export default {
   data: function() {
-    return {}
+    return {
+      isLogin: false
+    }
   },
   components: {
+    login: Login,
     'link-header': LinkHeader
+  },
+  mounted: function() {
+    const userName = sessionStorage.getItem('userName')
+    this.isLogin = !!userName
   }
 }
 </script>
