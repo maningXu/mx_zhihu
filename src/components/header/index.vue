@@ -88,14 +88,25 @@ export default {
     return {
       currentLink: '',
       list: [
-        { key: 'zhihu', title: '首页', to: '/home', href: '//www.zhihu.com/' },
-        { key: 'vip', title: '会员', to: '/vip-web', href: '//www.zhihu.com/xen/vip-web' },
-        { key: 'explore', title: '发现', to: '/explore', href: '//www.zhihu.com/explore' },
+        {
+          key: 'zhihu',
+          title: '首页',
+          to: '/home'
+        },
+        {
+          key: 'vip',
+          title: '会员',
+          to: '/vip-web'
+        },
+        {
+          key: 'explore',
+          title: '发现',
+          to: '/explore'
+        },
         {
           key: 'question',
           title: '等你来答',
-          to: '/question/waiting',
-          href: '//www.zhihu.com/question/waiting'
+          to: '/question/waiting'
         }
       ],
       isHeaderFixed: false,
