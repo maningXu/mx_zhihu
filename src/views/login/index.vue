@@ -7,11 +7,19 @@
           src="https://pic2.zhimg.com/80/v2-f6b1f64a098b891b4ea1e3104b5b71f6_720w.png"
         />
       </div>
+      <login-footer />
     </div>
   </main>
 </template>
 
-<script></script>
+<script>
+import LoginFooter from './login-footer.vue'
+export default {
+  components: {
+    'login-footer': LoginFooter
+  }
+}
+</script>
 
 <style scoped>
 .app-login {
