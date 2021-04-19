@@ -6,6 +6,7 @@
           class="sign-flow-homepage-logo"
           src="https://pic2.zhimg.com/80/v2-f6b1f64a098b891b4ea1e3104b5b71f6_720w.png"
         />
+        <login-form />
       </div>
       <login-footer />
     </div>
@@ -13,10 +14,13 @@
 </template>
 
 <script>
+import LoginForm from './login-form.vue'
 import LoginFooter from './login-footer.vue'
+
 export default {
   components: {
-    'login-footer': LoginFooter
+    'login-footer': LoginFooter,
+    'login-form': LoginForm
   }
 }
 </script>
