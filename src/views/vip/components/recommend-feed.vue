@@ -3,18 +3,19 @@
     <div class="recommendFeed-title">大家都在看</div>
     <div class="recommendFeed-dividerLine"></div>
     <div class="infinite-root">
-      <div v-for="(item, index) in recommendFeedList" :key="index" class="recommendFeed-skuRecommendCell">
-        <div class="recommendFeed-skuTitle">{{item.skuTitle}}</div>
+      <div
+        v-for="(item, index) in recommendFeedList"
+        :key="index"
+        class="recommendFeed-skuRecommendCell"
+      >
+        <div class="recommendFeed-skuTitle">{{ item.skuTitle }}</div>
         <div class="recommendFeed-artwork">
           <div class="image-imageWrapper skuAvatar-artwork">
             <img
               class="skuAvatar-artwork"
               src="https://pic2.zhimg.com/v2-d0dbac466869ddd32a56b7a6e5c1e62d.png"
             />
-            <img
-              class="image-image"
-              :src="item.img"
-            />
+            <img class="image-image" :src="item.img" />
           </div>
           <div class="cellLabel-type">
             <span class="verticalMiddle-root">盐选专栏</span>
@@ -26,9 +27,9 @@
         </div>
         <div class="recommendFeed-content">
           <div class="recommendFeed-manuscript">
-            {{item.manuscript}}
+            {{ item.manuscript }}
           </div>
-          <div class="recommendFeed-meta">{{item.meta}}</div>
+          <div class="recommendFeed-meta">{{ item.meta }}</div>
         </div>
       </div>
     </div>

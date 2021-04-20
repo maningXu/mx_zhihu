@@ -38,13 +38,13 @@
                 </div>
               </div>
               <div class="voters-wrapper">
-                <span
-                  ><span class="voters"
-                    ><button type="button">
+                <span>
+                  <span class="voters">
+                    <button type="button">
                       85,515 人赞同了该回答
-                    </button></span
-                  ></span
-                >
+                    </button>
+                  </span>
+                </span>
               </div>
             </div>
             <div class="rich-content">
@@ -131,8 +131,9 @@
                     <a
                       href="https://link.zhihu.com/?target=https%3A//zh.wikihow.com/"
                       target="_blank"
-                      >https://zh.wikihow.com</a
                     >
+                      https://zh.wikihow.com
+                    </a>
                   </p>
                   <p>
                     WikiHow
@@ -158,8 +159,11 @@
                     <a
                       href="https://link.zhihu.com/?target=http%3A//guozhivip.com/rank/"
                       target="_blank"
-                      ><span>http://</span><span>guozhivip.com/rank/</span><span></span
-                    ></a>
+                    >
+                      <span>http://</span>
+                      <span>guozhivip.com/rank/</span>
+                      <span></span>
+                    </a>
                   </p>
                   <p>
                     果汁排行榜是一个聚合各种排行榜的一个实用网站，你可以利用这个网站轻松查询到各个方面的排行榜。
@@ -181,8 +185,11 @@
                       href="https://link.zhihu.com/?target=https%3A//www.producthunt.com/"
                       target="_blank"
                       rel="nofollow noreferrer"
-                      ><span>https://www.</span><span>producthunt.com/</span><span></span
-                    ></a>
+                    >
+                      <span>https://www.</span>
+                      <span>producthunt.com/</span>
+                      <span></span>
+                    </a>
                   </p>
                   <p>
                     Product Hunt
@@ -220,8 +227,11 @@
                     <a
                       href="https://link.zhihu.com/?target=http%3A//www.dxzy163.com/"
                       target="_blank"
-                      ><span>http://www.</span><span>dxzy163.com/</span><span></span
-                    ></a>
+                    >
+                      <span>http://www.</span>
+                      <span>dxzy163.com/</span>
+                      <span></span>
+                    </a>
                   </p>
                   <p>
                     大学资源网是一个功能强大并且完全免费的在线学习网站，提供了丰富并且全面的学习视频教程。
@@ -247,8 +257,11 @@
                     <a
                       href="https://link.zhihu.com/?target=https%3A//site.sciping.com/"
                       target="_blank"
-                      ><span>https://</span><span>site.sciping.com/</span><span></span
-                    ></a>
+                    >
+                      <span>https://</span>
+                      <span>site.sciping.com/</span>
+                      <span></span>
+                    </a>
                   </p>
                   <p>科塔学术导航是一个质量非常高的学术导航网站，强烈推荐收藏。</p>
                   <p>

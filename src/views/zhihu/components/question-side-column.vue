@@ -220,8 +220,8 @@
             证照中心
           </a>
           <br />
-          <a class="footer-item" target="_blank" href="/contact"> 联系我们 </a>
-          <span> © 2021 知乎</span>
+          <a class="footer-item" target="_blank" href="/contact">联系我们</a>
+          <span>© 2021 知乎</span>
         </footer>
       </div>
     </div>

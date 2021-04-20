@@ -5,15 +5,15 @@
         <div class="question-header-tags">
           <div class="question-header-topics">
             <div v-for="(item, index) in topicList" :key="index" class="question-topic">
-              <span class="tag-content"
-                ><a class="topic-link">
+              <span class="tag-content">
+                <a class="topic-link">
                   <div class="popover">
                     <div @mouseover="showPopCard($event, item.key)" @mouseout="hidePopCard">
                       {{ item.title }}
                     </div>
-                  </div></a
-                ></span
-              >
+                  </div>
+                </a>
+              </span>
             </div>
           </div>
         </div>
@@ -183,8 +183,9 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     href="//www.zhihu.com/topic/19550581"
-                    >{{ topicCardInfo.title }}</a
                   >
+                    {{ topicCardInfo.title }}
+                  </a>
                 </div>
               </div>
             </div>
@@ -196,28 +197,30 @@
           </div>
           <div class="hover-card-item">
             <div class="hover-card-number-board">
-              <a target="_blank" href="//www.zhihu.com/topic/19550581/questions" type="button"
-                ><div class="hover-card-number-board-itemInner">
+              <a target="_blank" href="//www.zhihu.com/topic/19550581/questions" type="button">
+                <div class="hover-card-number-board-itemInner">
                   <div class="hover-card-number-board-itemName">问题</div>
                   <strong class="hover-card-number-board-itemValue" :title="topicCardInfo.question">
                     {{ toThousands(topicCardInfo.question) }}
                   </strong>
-                </div></a
-              ><a target="_blank" href="//www.zhihu.com/topic/19550581/top-answers" type="button"
-                ><div class="hover-card-number-board-itemInner">
+                </div>
+              </a>
+              <a target="_blank" href="//www.zhihu.com/topic/19550581/top-answers" type="button">
+                <div class="hover-card-number-board-itemInner">
                   <div class="hover-card-number-board-itemName">精华</div>
                   <strong class="hover-card-number-board-itemValue" :title="topicCardInfo.essence">
                     {{ toThousands(topicCardInfo.essence) }}
                   </strong>
-                </div></a
-              ><a target="_blank" href="//www.zhihu.com/topic/19550581/followers" type="button"
-                ><div class="hover-card-number-board-itemInner">
+                </div>
+              </a>
+              <a target="_blank" href="//www.zhihu.com/topic/19550581/followers" type="button">
+                <div class="hover-card-number-board-itemInner">
                   <div class="hover-card-number-board-itemName">关注者</div>
                   <strong class="hover-card-number-board-itemValue" :title="topicCardInfo.follow">
                     {{ toThousands(topicCardInfo.follow) }}
                   </strong>
-                </div></a
-              >
+                </div>
+              </a>
             </div>
             <div class="hover-card-buttons">
               <button type="button" class="button-primary">关注话题</button>

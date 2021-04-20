@@ -6,5 +6,7 @@
   "bracketSpacing": true,
   "jsxBracketSameLine": false,
   "tabWidth": 2,
-  "printWidth": 100
+  "printWidth": 100,
+  "vueIndentScriptAndStyle": false,
+  "htmlWhitespaceSensitivity": "ignore" 
 }

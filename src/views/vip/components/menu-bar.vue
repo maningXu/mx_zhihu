@@ -11,7 +11,7 @@
       </div>
       <div class="menuBar-divider"></div>
       <div class="menuBar-typeLink">
-        <a v-for="(item, index) in typeLinks" :key="index"> {{ item.name }}</a>
+        <a v-for="(item, index) in typeLinks" :key="index">{{ item.name }}</a>
         <a class="menuBar-typeLinkItem-more">更多...</a>
       </div>
     </div>
