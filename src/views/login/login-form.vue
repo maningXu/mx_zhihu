@@ -41,6 +41,18 @@
               </svg>
             </div>
           </div>
+          <button class="button-blue button-primary sign-flow-submit-button">
+            注册/登录
+          </button>
+          <div class="sign-container-tip">
+            <div>
+              <div>
+                未注册手机验证后自动登录，注册即代表同意
+                <a href="https://www.zhihu.com/term/zhihu-terms">《知乎协议》</a>
+                <a href="https://www.zhihu.com/term/privacy">《隐私保护指引》</a>
+              </div>
+            </div>
+          </div>
         </form>
       </div>
     </div>
@@ -197,6 +209,7 @@ export default {}
   padding: 0 24px 84px;
   overflow: hidden;
 }
+/* login form: tabs */
 .sign-flow-tabs {
   text-align: left;
 }
@@ -232,6 +245,34 @@ export default {}
   width: 100%;
   height: 100%;
   cursor: pointer;
+}
+/* login form: submit button */
+.sign-flow-submit-button {
+  width: 100%;
+  margin-top: 30px;
+  height: 36px;
+}
+/* login form: tip info */
+.sign-container-tip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 12px 24px;
+  color: grey;
+  font-size: 13px;
+}
+.sign-container-tip > div {
+  text-align: left;
 }
 /* split line */
 .split {
