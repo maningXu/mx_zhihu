@@ -41,6 +41,12 @@
               </svg>
             </div>
           </div>
+          <div class="login-options">
+            <button type="button" class="login-switchType button-plain"></button>
+            <button type="button" class="login-cannotLogin button-plain">
+              接收语音验证码
+            </button>
+          </div>
           <button class="button-blue button-primary sign-flow-submit-button">
             注册/登录
           </button>
@@ -245,6 +251,24 @@ export default {}
   width: 100%;
   height: 100%;
   cursor: pointer;
+}
+/* login form: login options */
+.login-options {
+  margin-top: 12px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  background: #fff;
+}
+.login-cannotLogin {
+  float: right;
+}
+.login-cannotLogin:hover {
+  color: grey;
 }
 /* login form: submit button */
 .sign-flow-submit-button {

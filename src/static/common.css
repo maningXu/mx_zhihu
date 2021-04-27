@@ -23,3 +23,15 @@ body {
   border-color: #005ce6;
   background-color: #005ce6;
 }
+/* button plain */
+.button-plain {
+  height: auto;
+  padding: 0;
+  line-height: inherit;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+.button-plain:hover {
+  background-color: transparent;
+}
