@@ -41,13 +41,18 @@
               </svg>
             </div>
           </div>
+          <div class="sign-flow-account">
+            <div class="sign-flow-supportedCountriesSelectContainer"></div>
+            <span class="sign-flow-accountSeperator">&nbsp;</span>
+            <div></div>
+          </div>
           <div class="login-options">
             <button type="button" class="login-switchType button-plain"></button>
             <button type="button" class="login-cannotLogin button-plain">
               接收语音验证码
             </button>
           </div>
-          <button class="button-blue button-primary sign-flow-submit-button">
+          <button type="button" class="button-blue button-primary sign-flow-submit-button">
             注册/登录
           </button>
           <div class="sign-container-tip">
@@ -251,6 +256,21 @@ export default {}
   width: 100%;
   height: 100%;
   cursor: pointer;
+}
+/* phone and code */
+.sign-flow-account {
+  margin-top: 24px;
+  border-bottom: 1px solid #ebebeb;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.sign-flow-accountSeperator {
+  width: 1px;
+  height: 22px;
+  margin: 0 12px;
+  background: #ebebeb;
 }
 /* login form: login options */
 .login-options {
