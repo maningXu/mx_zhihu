@@ -42,9 +42,31 @@
             </div>
           </div>
           <div class="sign-flow-account">
-            <div class="sign-flow-supportedCountriesSelectContainer"></div>
+            <div class="sign-flow-supportedCountriesSelectContainer">
+              <div class="popover">
+                <button type="button" class="button-plain select-button-plain">
+                  中国 +86
+                  <svg
+                    class="select-arrow"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                  >
+                    <path
+                      d="M12 16.183l2.716-2.966a.757.757 0 0 1 1.064.001.738.738 0 0 1 0 1.052l-3.247 3.512a.758.758 0 0 1-1.064 0L8.22 14.27a.738.738 0 0 1 0-1.052.758.758 0 0 1 1.063 0L12 16.183zm0-9.365L9.284 9.782a.758.758 0 0 1-1.064 0 .738.738 0 0 1 0-1.052l3.248-3.512a.758.758 0 0 1 1.065 0L15.78 8.73a.738.738 0 0 1 0 1.052.757.757 0 0 1-1.063.001L12 6.818z"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
             <span class="sign-flow-accountSeperator">&nbsp;</span>
-            <div></div>
+            <div class="sign-flow-accountInputContainer">
+              <label class="input-wrapper">
+                <input name="username" type="tel" placeholder="手机号" value="" />
+              </label>
+            </div>
           </div>
           <div class="login-options">
             <button type="button" class="login-switchType button-plain"></button>
@@ -266,11 +288,66 @@ export default {}
   -ms-flex-align: center;
   align-items: center;
 }
+.sign-flow-supportedCountriesSelectContainer {
+  display: inline-block;
+  min-width: 72px;
+}
+.popover {
+  position: relative;
+  display: inline-block;
+}
+.select-button-plain {
+  text-align: left;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.select-arrow {
+  margin-left: 8px;
+}
 .sign-flow-accountSeperator {
   width: 1px;
   height: 22px;
   margin: 0 12px;
   background: #ebebeb;
+}
+.sign-flow-accountInputContainer {
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  overflow: hidden;
+}
+.sign-flow-accountInputContainer .input-wrapper {
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  height: 48px;
+  padding: 0;
+  color: #8590a6;
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 14px;
+  background: #fff;
+  box-sizing: border-box;
+  transition: background 0.2s, border 0.2s;
+}
+.sign-flow-accountInputContainer .input-wrapper input {
+  height: 48px;
+  color: #121212;
+  line-height: 24px;
+  -webkit-box-flex: 1;
+  flex: 1 1;
+  padding: 0;
+  overflow: hidden;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  background: transparent;
+  border: none;
+  resize: none;
 }
 /* login form: login options */
 .login-options {
