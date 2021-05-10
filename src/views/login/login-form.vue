@@ -68,6 +68,16 @@
               </label>
             </div>
           </div>
+          <div class="sign-flow-smsInputContainer">
+            <div class="sign-flow-smsInput">
+              <label class="input-wrapper">
+                <input name="digits" type="number" placeholder="输入 6 位短信验证码" value="" />
+              </label>
+            </div>
+            <button type="button" class="button-plain sign-flow-smsInputButton">
+              获取短信验证码
+            </button>
+          </div>
           <div class="login-options">
             <button type="button" class="login-switchType button-plain"></button>
             <button type="button" class="login-cannotLogin button-plain">
@@ -348,6 +358,59 @@ export default {}
   background: transparent;
   border: none;
   resize: none;
+}
+.sign-flow-smsInputContainer {
+  position: relative;
+  margin-top: 12px;
+  overflow: hidden;
+}
+.sign-flow-smsInput {
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  width: auto;
+}
+.sign-flow-smsInput .input-wrapper {
+  width: 100%;
+  height: 48px;
+  padding: 0;
+  color: #8590a6;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: 0;
+  border: none;
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 14px;
+  background: #fff;
+  -webkit-box-sizing: border-box;
+  -webkit-transition: background 0.2s, border 0.2s;
+}
+.sign-flow-smsInput .input-wrapper input {
+  height: 48px;
+  color: #121212;
+  line-height: 24px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  padding: 0;
+  overflow: hidden;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  background: transparent;
+  border: none;
+  resize: none;
+}
+.sign-flow-smsInputButton {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  padding: 4px 0;
+  color: #175199;
+  transform: translateY(-50%);
 }
 /* login form: login options */
 .login-options {
