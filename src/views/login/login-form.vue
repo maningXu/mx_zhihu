@@ -4,8 +4,14 @@
       <div class="sign-container-inner">
         <form class="sign-flow">
           <div class="sign-flow-tabs">
-            <div class="sign-flow-tab active">免密码登录</div>
-            <div class="sign-flow-tab">密码登录</div>
+            <div
+              v-for="(item, index) in tabsList"
+              :key="index"
+              @click="setTab(item)"
+              :class="['sign-flow-tab', { active: currentTab === item.key }]"
+            >
+              {{ item.name }}
+            </div>
             <div class="sign-flow-qrcodeTab">
               <svg width="52" height="52" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none">
                 <mask
@@ -79,13 +85,15 @@
             </button>
           </div>
           <div class="login-options">
-            <button type="button" class="login-switchType button-plain"></button>
+            <button type="button" class="login-switchType button-plain">
+              {{ switchTypeButtonText }}
+            </button>
             <button type="button" class="login-cannotLogin button-plain">
-              接收语音验证码
+              {{ cannotLoginButtonText }}
             </button>
           </div>
           <button type="button" class="button-blue button-primary sign-flow-submit-button">
-            注册/登录
+            {{ submitButtonText }}
           </button>
           <div class="sign-container-tip">
             <div>
@@ -223,7 +231,36 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data: function() {
+    return {
+      currentTab: 'noPassword',
+      tabsList: [
+        { name: '免密码登录', key: 'noPassword' },
+        { name: '密码登录', key: 'password' }
+      ]
+    }
+  },
+  computed: {
+    isNoPasswordTab: function() {
+      return this.currentTab === 'noPassword'
+    },
+    switchTypeButtonText: function() {
+      return this.isNoPasswordTab ? '' : '海外手机登录'
+    },
+    cannotLoginButtonText: function() {
+      return this.isNoPasswordTab ? '接收语音验证码' : '忘记密码？'
+    },
+    submitButtonText: function() {
+      return this.isNoPasswordTab ? '注册/登录' : '登录'
+    }
+  },
+  methods: {
+    setTab: function(item) {
+      this.currentTab = item.key
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -423,6 +460,12 @@ export default {}
   -ms-flex-pack: justify;
   justify-content: space-between;
   background: #fff;
+}
+.login-switchType {
+  color: #175199;
+}
+.login-switchType:hover {
+  color: #76839b;
 }
 .login-cannotLogin {
   float: right;
