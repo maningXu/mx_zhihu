@@ -45,3 +45,8 @@ form {
 input:focus {
   outline: none;
 }
+/* remove arrow for input which type is number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+}

@@ -47,7 +47,7 @@
               </svg>
             </div>
           </div>
-          <div class="sign-flow-account">
+          <div v-if="isNoPasswordTab" class="sign-flow-account">
             <div class="sign-flow-supportedCountriesSelectContainer">
               <div class="popover">
                 <button type="button" class="button-plain select-button-plain">
@@ -74,7 +74,14 @@
               </label>
             </div>
           </div>
-          <div class="sign-flow-smsInputContainer">
+          <div v-else class="sign-flow-account">
+            <div class="sign-flow-accountInputContainer">
+              <label class="input-wrapper">
+                <input name="username" type="text" placeholder="手机号或邮箱" value="" />
+              </label>
+            </div>
+          </div>
+          <div v-if="isNoPasswordTab" class="sign-flow-smsInputContainer">
             <div class="sign-flow-smsInput">
               <label class="input-wrapper">
                 <input name="digits" type="number" placeholder="输入 6 位短信验证码" value="" />
@@ -82,6 +89,23 @@
             </div>
             <button type="button" class="button-plain sign-flow-smsInputButton">
               获取短信验证码
+            </button>
+          </div>
+          <div v-else class="sign-flow-password">
+            <div class="sign-flow-input">
+              <label class="input-wrapper">
+                <input name="password" type="password" class="Input" placeholder="密码" value="" />
+              </label>
+            </div>
+            <button type="button" class="button-plain sign-flow-switch-password">
+              <span style="display: inline-flex; align-items: center;">
+                <svg fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em">
+                  <path
+                    d="M1 11.5C1 15 7 19 12 19s11-4 11-7.5S17 4 12 4 1 8 1 11.5zm11 5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm-3-5c0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3-3 1.34-3 3z"
+                    fill-rule="evenodd"
+                  ></path>
+                </svg>
+              </span>
             </button>
           </div>
           <div class="login-options">
@@ -413,9 +437,9 @@ export default {
   height: 48px;
   padding: 0;
   color: #8590a6;
+  border: none;
   border-bottom: 1px solid #ebebeb;
   border-radius: 0;
-  border: none;
   position: relative;
   display: flex;
   -webkit-box-align: center;
@@ -448,6 +472,61 @@ export default {
   padding: 4px 0;
   color: #175199;
   transform: translateY(-50%);
+}
+.sign-flow-password {
+  position: relative;
+  margin-top: 12px;
+  border-bottom: 1px solid #ebebeb;
+}
+.sign-flow-password .sign-flow-input {
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+}
+.sign-flow-password .input-wrapper {
+  position: relative;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 14px;
+  background: #fff;
+  -webkit-box-sizing: border-box;
+  transition: background 0.2s, border 0.2s;
+  width: 100%;
+  height: 48px;
+  padding: 0;
+  color: #8590a6;
+  border: none;
+  border-radius: 0;
+  border-bottom: none !important;
+}
+.sign-flow-password .input-wrapper input {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  padding: 0;
+  overflow: hidden;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  background: transparent;
+  border: none;
+  resize: none;
+  color: #121212;
+  line-height: 24px;
+  height: 48px;
+}
+.sign-flow-switch-password {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 18px;
+  padding: 0;
+}
+.sign-flow-switch-password:hover {
+  color: #999;
 }
 /* login form: login options */
 .login-options {
