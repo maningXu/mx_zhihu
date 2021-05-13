@@ -5,6 +5,7 @@ import Home from '../views/home.vue'
 import Vip from '../views/vip/index.vue'
 import Explore from '../views/explore/index.vue'
 import Question from '../views/question.vue'
+import Login from '../views/login/index.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/question/waiting',
     name: 'Question',
     component: Question
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   }
 ]
 

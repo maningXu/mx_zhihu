@@ -1,6 +1,9 @@
 <template>
   <div>
-    <header :class="['app-header', { 'is-fixed': isHeaderFixed }, { 'is-hide': isHeaderHide }]">
+    <header
+      v-if="!isLogin"
+      :class="['app-header', { 'is-fixed': isHeaderFixed }, { 'is-hide': isHeaderHide }]"
+    >
       <div class="app-header-inner">
         <logo-link @go-answer-page="goAnswerPage" />
         <ul class="app-header-tabs">
@@ -114,9 +117,16 @@ export default {
       y: 0
     }
   },
+  computed: {
+    isLogin: function() {
+      return ['zhihu', 'question'].includes(this.currentLink)
+    }
+  },
   watch: {
     currentLink: function() {
-      window.sessionStorage.setItem('currentLink', this.currentLink)
+      if (!this.isLogin) {
+        window.sessionStorage.setItem('currentLink', this.currentLink)
+      }
     }
   },
   mounted() {
@@ -159,6 +169,9 @@ export default {
     },
     clickLink: function(item) {
       this.currentLink = item.key
+      if (['zhihu', 'question'].includes(item.key)) {
+        this.$router.push('/login')
+      }
     }
   }
 }
